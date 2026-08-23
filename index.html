@@ -36,20 +36,15 @@
           <select id="secondaryTypeFilter"></select>
         </label>
 
-        <label>
-          Generation
-          <select id="generationFilter"></select>
-        </label>
+        <fieldset class="multi-fieldset" id="generationGroup">
+          <legend>Generation</legend>
+          <div id="generationOptions" class="option-grid"></div>
+        </fieldset>
 
-        <label>
-          Habitat
-          <select id="habitatFilter"></select>
-        </label>
-
-        <label>
-          Rank
-          <select id="rankFilter"></select>
-        </label>
+        <fieldset class="multi-fieldset" id="habitatGroup">
+          <legend>Habitat</legend>
+          <div id="habitatOptions" class="option-grid"></div>
+        </fieldset>
 
         <label>
           Include legendary
@@ -60,13 +55,10 @@
           </select>
         </label>
 
-        <label>
-          Rank up method (display only)
-          <select id="rankUpMethod">
-            <option value="random">Random</option>
-            <option value="strict">Strict</option>
-          </select>
-        </label>
+        <fieldset class="multi-fieldset" id="rankMethodGroup">
+          <legend>Rank methods</legend>
+          <div id="rankMethodOptions" class="option-grid"></div>
+        </fieldset>
 
         <label class="check-row">
           <input id="rankOrLower" type="checkbox" checked>
@@ -88,7 +80,10 @@
             Seed
             <input id="seed" type="text" placeholder="auto-generated if empty">
           </label>
-          <button id="randomSeed" type="button" class="ghost">Random Seed</button>
+          <label class="check-row seed-toggle-row">
+            <input id="randomSeedToggle" type="checkbox" checked>
+            Random seed each generation
+          </label>
         </div>
       </div>
 

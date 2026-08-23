@@ -1,6 +1,29 @@
 ﻿const API = "https://pokeapi.co/api/v2";
 
-const RANKS = ["Starter", "Beginner", "Ace", "Pro", "Elite", "Champion"];
+const RANK_METHODS = [
+  "Any",
+  "UNRANKED",
+  "STARTER",
+  "ROOKIE",
+  "STANDARD",
+  "ADVANCED",
+  "EXPERT",
+  "ACE",
+  "MASTER",
+  "CHAMPION"
+];
+const RANK_ICON_BY_METHOD = {
+  UNRANKED: "WhiteBall.png",
+  STARTER: "WhiteBall.png",
+  ROOKIE: "PokeBall.png",
+  STANDARD: "GreatBall.png",
+  ADVANCED: "UltraBall.png",
+  EXPERT: "ExpertBall.png",
+  ACE: "CherishBall.png",
+  MASTER: "MasterBall.png",
+  CHAMPION: "ChampionBall.png"
+};
+const RANK_ICON_BASE_URL = "https://pokeroledex.nl/images/rank/";
 const TYPE_OPTIONS = [
   "Any",
   "normal", "fire", "water", "electric", "grass", "ice", "fighting", "poison", "ground", "flying",
@@ -36,16 +59,15 @@ const els = {
   nameFilter: document.getElementById("nameFilter"),
   typeFilter: document.getElementById("typeFilter"),
   secondaryTypeFilter: document.getElementById("secondaryTypeFilter"),
-  generationFilter: document.getElementById("generationFilter"),
-  habitatFilter: document.getElementById("habitatFilter"),
-  rankFilter: document.getElementById("rankFilter"),
+  generationOptions: document.getElementById("generationOptions"),
+  habitatOptions: document.getElementById("habitatOptions"),
+  rankMethodOptions: document.getElementById("rankMethodOptions"),
   rankOrLower: document.getElementById("rankOrLower"),
   legendaryFilter: document.getElementById("legendaryFilter"),
   includeMythical: document.getElementById("includeMythical"),
   excludeForms: document.getElementById("excludeForms"),
-  rankUpMethod: document.getElementById("rankUpMethod"),
   seed: document.getElementById("seed"),
-  randomSeed: document.getElementById("randomSeed"),
+  randomSeedToggle: document.getElementById("randomSeedToggle"),
   generateBtn: document.getElementById("generateBtn"),
   copyBtn: document.getElementById("copyBtn"),
   resetBtn: document.getElementById("resetBtn"),
@@ -58,32 +80,136 @@ const els = {
 function setupSelects() {
   TYPE_OPTIONS.forEach((type) => addOption(els.typeFilter, type));
   TYPE_OPTIONS.forEach((type) => addOption(els.secondaryTypeFilter, type));
-  HABITATS.forEach((habitat) => addOption(els.habitatFilter, habitat));
-  ["Any", ...RANKS].forEach((rank) => addOption(els.rankFilter, rank));
-  GENERATIONS.forEach((generation) => addOption(els.generationFilter, generation));
+  renderCheckboxGroup(els.habitatOptions, "habitat", HABITATS);
+  renderCheckboxGroup(els.generationOptions, "generation", GENERATIONS);
+  renderRankMethodGroup(els.rankMethodOptions, "rankMethod", RANK_METHODS);
 }
 
 function addOption(select, value) {
   const option = document.createElement("option");
   option.value = value;
   option.textContent = value === "Any" ? "Any" : toLabel(value);
+  if (value === "Any") {
+    option.selected = true;
+  }
   select.append(option);
+}
+
+function renderCheckboxGroup(container, groupName, values) {
+  values.forEach((value) => {
+    const row = document.createElement("label");
+    row.className = "check-row";
+
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.name = groupName;
+    input.value = value;
+    input.checked = value === "Any";
+
+    input.addEventListener("change", () => onCheckboxGroupChange(groupName, input.value));
+
+    const text = document.createElement("span");
+    text.textContent = value === "Any" ? "Any" : toLabel(value);
+
+    row.append(input, text);
+    container.append(row);
+  });
+}
+
+function renderRankMethodGroup(container, groupName, values) {
+  values.forEach((value) => {
+    const row = document.createElement("label");
+    row.className = "check-row rank-method-row";
+
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.name = groupName;
+    input.value = value;
+    input.checked = value === "Any";
+    input.addEventListener("change", () => onCheckboxGroupChange(groupName, input.value));
+
+    if (value !== "Any") {
+      const icon = document.createElement("img");
+      icon.className = "rank-icon";
+      icon.alt = `${toLabel(value)} icon`;
+      icon.src = `${RANK_ICON_BASE_URL}${RANK_ICON_BY_METHOD[value]}`;
+      row.append(icon);
+    }
+
+    const text = document.createElement("span");
+    text.textContent = value === "Any" ? "Any" : toLabel(value);
+
+    row.append(input, text);
+    container.append(row);
+  });
+}
+
+function onCheckboxGroupChange(groupName, changedValue) {
+  const inputs = Array.from(document.querySelectorAll(`input[name="${groupName}"]`));
+  const anyInput = inputs.find((i) => i.value === "Any");
+
+  if (changedValue === "Any" && anyInput && anyInput.checked) {
+    inputs.forEach((input) => {
+      if (input.value !== "Any") {
+        input.checked = false;
+      }
+    });
+    return;
+  }
+
+  const selectedSpecific = inputs.filter((i) => i.value !== "Any" && i.checked);
+  if (anyInput) {
+    anyInput.checked = selectedSpecific.length === 0;
+  }
+}
+
+function readCheckboxGroupValues(groupName) {
+  return Array.from(document.querySelectorAll(`input[name="${groupName}"]:checked`)).map((i) => i.value);
+}
+
+function isMultiFilterMatch(values, currentValue) {
+  return values.length === 0 || values.includes("Any") || values.includes(currentValue);
+}
+
+function isRankMethodMatch(rankValue, selectedRankMethods, includeLower) {
+  if (selectedRankMethods.length === 0 || selectedRankMethods.includes("Any")) {
+    return true;
+  }
+
+  const rankedSelected = selectedRankMethods.filter((v) => v !== "Any");
+  const currentIndex = RANK_METHODS.indexOf(rankValue);
+  if (currentIndex < 0) {
+    return false;
+  }
+
+  if (!includeLower) {
+    return rankedSelected.includes(rankValue);
+  }
+
+  return rankedSelected.some((target) => {
+    const targetIndex = RANK_METHODS.indexOf(target);
+    return targetIndex >= 0 && currentIndex <= targetIndex;
+  });
 }
 
 function toLabel(value) {
   return value
-    .split("-")
+    .toLowerCase()
+    .split(/[-_]/)
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(" ");
 }
 
 function rankFromBst(baseStatTotal) {
-  if (baseStatTotal <= 300) return "Starter";
-  if (baseStatTotal <= 380) return "Beginner";
-  if (baseStatTotal <= 460) return "Ace";
-  if (baseStatTotal <= 540) return "Pro";
-  if (baseStatTotal <= 620) return "Elite";
-  return "Champion";
+  if (baseStatTotal <= 220) return "UNRANKED";
+  if (baseStatTotal <= 280) return "STARTER";
+  if (baseStatTotal <= 330) return "ROOKIE";
+  if (baseStatTotal <= 380) return "STANDARD";
+  if (baseStatTotal <= 430) return "ADVANCED";
+  if (baseStatTotal <= 490) return "EXPERT";
+  if (baseStatTotal <= 560) return "ACE";
+  if (baseStatTotal <= 640) return "MASTER";
+  return "CHAMPION";
 }
 
 function seededRandom(seed) {
@@ -121,14 +247,6 @@ function shuffled(list, rng) {
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
-}
-
-function isRankMatch(rank, selectedRank, includeLower) {
-  if (selectedRank === "Any") return true;
-  const current = RANKS.indexOf(rank);
-  const target = RANKS.indexOf(selectedRank);
-  if (current < 0 || target < 0) return false;
-  return includeLower ? current <= target : current === target;
 }
 
 async function loadBaseList() {
@@ -208,15 +326,15 @@ function matchesFilters(record, filters) {
     return false;
   }
 
-  if (filters.generation !== "Any" && record.generation !== filters.generation) {
+  if (!isMultiFilterMatch(filters.habitats, record.habitat)) {
     return false;
   }
 
-  if (filters.habitat !== "Any" && record.habitat !== filters.habitat) {
+  if (!isMultiFilterMatch(filters.generations, record.generation)) {
     return false;
   }
 
-  if (!isRankMatch(record.rank, filters.rank, filters.rankOrLower)) {
+  if (!isRankMethodMatch(record.rank, filters.rankMethods, filters.rankOrLower)) {
     return false;
   }
 
@@ -263,7 +381,7 @@ function render(records) {
     sprite.src = record.sprite || "";
     sprite.alt = record.name;
     name.textContent = `${toLabel(record.name)} #${record.id}`;
-    meta.textContent = `Rank: ${record.rank} | Habitat: ${toLabel(record.habitat)}`;
+    meta.textContent = `Rank: ${toLabel(record.rank)} | Habitat: ${toLabel(record.habitat)}`;
     extra.textContent = `BST: ${record.baseStatTotal} | Gen: ${toLabel(record.generation)} | Legendary: ${record.legendary ? "Yes" : "No"} | Mythical: ${record.mythical ? "Yes" : "No"}`;
 
     record.types.forEach((type) => {
@@ -281,21 +399,24 @@ async function generateEncounter() {
   const requestedCount = Number.parseInt(els.count.value, 10);
   const count = Number.isNaN(requestedCount) ? 1 : Math.min(Math.max(requestedCount, 1), 12);
 
-  const seedText = els.seed.value.trim() || String(Date.now());
+  const randomMode = els.randomSeedToggle.checked;
+  let seedText = els.seed.value.trim();
+  if (randomMode || !seedText) {
+    seedText = `${Date.now()}-${Math.floor(Math.random() * 1_000_000)}`;
+  }
   els.seed.value = seedText;
 
   const filters = {
     nameContains: els.nameFilter.value.trim().toLowerCase(),
     type: els.typeFilter.value,
     secondaryType: els.secondaryTypeFilter.value,
-    generation: els.generationFilter.value,
-    habitat: els.habitatFilter.value,
-    rank: els.rankFilter.value,
+    generations: readCheckboxGroupValues("generation"),
+    habitats: readCheckboxGroupValues("habitat"),
+    rankMethods: readCheckboxGroupValues("rankMethod"),
     rankOrLower: els.rankOrLower.checked,
     legendary: els.legendaryFilter.value,
     includeMythical: els.includeMythical.checked,
-    excludeForms: els.excludeForms.checked,
-    rankUpMethod: els.rankUpMethod.value
+    excludeForms: els.excludeForms.checked
   };
 
   setStatus("Generating encounter... fetching matching records.");
@@ -363,23 +484,25 @@ function copyResults() {
     .catch(() => setStatus("Clipboard copy failed. Copy manually from cards."));
 }
 
-function randomizeSeed() {
-  els.seed.value = `${Date.now()}-${Math.floor(Math.random() * 1_000_000)}`;
-}
-
 function resetFilters() {
   els.count.value = 1;
   els.nameFilter.value = "";
   els.typeFilter.value = "Any";
   els.secondaryTypeFilter.value = "Any";
-  els.generationFilter.value = "Any";
-  els.habitatFilter.value = "Any";
-  els.rankFilter.value = "Any";
+  Array.from(document.querySelectorAll('input[name="generation"]')).forEach((input) => {
+    input.checked = input.value === "Any";
+  });
+  Array.from(document.querySelectorAll('input[name="habitat"]')).forEach((input) => {
+    input.checked = input.value === "Any";
+  });
+  Array.from(document.querySelectorAll('input[name="rankMethod"]')).forEach((input) => {
+    input.checked = input.value === "Any";
+  });
   els.legendaryFilter.value = "no_legendaries";
   els.rankOrLower.checked = true;
   els.includeMythical.checked = false;
   els.excludeForms.checked = true;
-  els.rankUpMethod.value = "random";
+  els.randomSeedToggle.checked = true;
   els.seed.value = "";
   state.lastResult = [];
   state.lastPoolSize = 0;
@@ -391,7 +514,6 @@ function resetFilters() {
 async function init() {
   setupSelects();
 
-  els.randomSeed.addEventListener("click", randomizeSeed);
   els.generateBtn.addEventListener("click", generateEncounter);
   els.copyBtn.addEventListener("click", copyResults);
   els.resetBtn.addEventListener("click", resetFilters);
