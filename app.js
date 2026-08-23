@@ -1,0 +1,406 @@
+﻿const API = "https://pokeapi.co/api/v2";
+
+const RANKS = ["Starter", "Beginner", "Ace", "Pro", "Elite", "Champion"];
+const TYPE_OPTIONS = [
+  "Any",
+  "normal", "fire", "water", "electric", "grass", "ice", "fighting", "poison", "ground", "flying",
+  "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy"
+];
+const HABITATS = [
+  "Any",
+  "cave", "forest", "grassland", "mountain", "rare", "rough-terrain", "sea", "urban", "waters-edge", "unknown"
+];
+const GENERATIONS = [
+  "Any",
+  "generation-i",
+  "generation-ii",
+  "generation-iii",
+  "generation-iv",
+  "generation-v",
+  "generation-vi",
+  "generation-vii",
+  "generation-viii",
+  "generation-ix"
+];
+
+const state = {
+  allPokemon: [],
+  cache: new Map(),
+  typeMembersCache: new Map(),
+  lastResult: [],
+  lastPoolSize: 0
+};
+
+const els = {
+  count: document.getElementById("count"),
+  nameFilter: document.getElementById("nameFilter"),
+  typeFilter: document.getElementById("typeFilter"),
+  secondaryTypeFilter: document.getElementById("secondaryTypeFilter"),
+  generationFilter: document.getElementById("generationFilter"),
+  habitatFilter: document.getElementById("habitatFilter"),
+  rankFilter: document.getElementById("rankFilter"),
+  rankOrLower: document.getElementById("rankOrLower"),
+  legendaryFilter: document.getElementById("legendaryFilter"),
+  includeMythical: document.getElementById("includeMythical"),
+  excludeForms: document.getElementById("excludeForms"),
+  rankUpMethod: document.getElementById("rankUpMethod"),
+  seed: document.getElementById("seed"),
+  randomSeed: document.getElementById("randomSeed"),
+  generateBtn: document.getElementById("generateBtn"),
+  copyBtn: document.getElementById("copyBtn"),
+  resetBtn: document.getElementById("resetBtn"),
+  status: document.getElementById("status"),
+  resultMeta: document.getElementById("resultMeta"),
+  results: document.getElementById("results"),
+  cardTemplate: document.getElementById("cardTemplate")
+};
+
+function setupSelects() {
+  TYPE_OPTIONS.forEach((type) => addOption(els.typeFilter, type));
+  TYPE_OPTIONS.forEach((type) => addOption(els.secondaryTypeFilter, type));
+  HABITATS.forEach((habitat) => addOption(els.habitatFilter, habitat));
+  ["Any", ...RANKS].forEach((rank) => addOption(els.rankFilter, rank));
+  GENERATIONS.forEach((generation) => addOption(els.generationFilter, generation));
+}
+
+function addOption(select, value) {
+  const option = document.createElement("option");
+  option.value = value;
+  option.textContent = value === "Any" ? "Any" : toLabel(value);
+  select.append(option);
+}
+
+function toLabel(value) {
+  return value
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
+function rankFromBst(baseStatTotal) {
+  if (baseStatTotal <= 300) return "Starter";
+  if (baseStatTotal <= 380) return "Beginner";
+  if (baseStatTotal <= 460) return "Ace";
+  if (baseStatTotal <= 540) return "Pro";
+  if (baseStatTotal <= 620) return "Elite";
+  return "Champion";
+}
+
+function seededRandom(seed) {
+  const seedText = String(seed || "");
+  const hash = xmur3(seedText || String(Date.now()));
+  return mulberry32(hash());
+}
+
+function xmur3(str) {
+  let h = 1779033703 ^ str.length;
+  for (let i = 0; i < str.length; i += 1) {
+    h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+    h = (h << 13) | (h >>> 19);
+  }
+  return function finalHash() {
+    h = Math.imul(h ^ (h >>> 16), 2246822507);
+    h = Math.imul(h ^ (h >>> 13), 3266489909);
+    return (h ^= h >>> 16) >>> 0;
+  };
+}
+
+function mulberry32(a) {
+  return function random() {
+    let t = (a += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function shuffled(list, rng) {
+  const arr = [...list];
+  for (let i = arr.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(rng() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function isRankMatch(rank, selectedRank, includeLower) {
+  if (selectedRank === "Any") return true;
+  const current = RANKS.indexOf(rank);
+  const target = RANKS.indexOf(selectedRank);
+  if (current < 0 || target < 0) return false;
+  return includeLower ? current <= target : current === target;
+}
+
+async function loadBaseList() {
+  setStatus("Loading Pokemon list...");
+  const response = await fetch(`${API}/pokemon?limit=1302`);
+  if (!response.ok) throw new Error("Cannot load Pokemon list from PokeAPI.");
+  const data = await response.json();
+  state.allPokemon = data.results.map((p) => p.name);
+  setStatus(`Loaded ${state.allPokemon.length} Pokemon. Ready.`);
+}
+
+async function getPokemonRecord(name) {
+  if (state.cache.has(name)) {
+    return state.cache.get(name);
+  }
+
+  const pokemonRes = await fetch(`${API}/pokemon/${name}`);
+  if (!pokemonRes.ok) {
+    throw new Error(`Cannot load details for ${name}.`);
+  }
+
+  const pokemon = await pokemonRes.json();
+  const speciesRes = await fetch(pokemon.species.url);
+  if (!speciesRes.ok) {
+    throw new Error(`Cannot load species for ${name}.`);
+  }
+  const species = await speciesRes.json();
+
+  const baseStatTotal = pokemon.stats.reduce((sum, s) => sum + s.base_stat, 0);
+  const record = {
+    id: pokemon.id,
+    name: pokemon.name,
+    types: pokemon.types.map((t) => t.type.name),
+    habitat: species.habitat ? species.habitat.name : "unknown",
+    generation: species.generation ? species.generation.name : "unknown",
+    legendary: species.is_legendary,
+    mythical: species.is_mythical,
+    baseStatTotal,
+    rank: rankFromBst(baseStatTotal),
+    sprite: pokemon.sprites.other["official-artwork"].front_default || pokemon.sprites.front_default
+  };
+
+  state.cache.set(name, record);
+  return record;
+}
+
+async function getTypeMembers(typeName) {
+  if (typeName === "Any") {
+    return null;
+  }
+
+  if (state.typeMembersCache.has(typeName)) {
+    return state.typeMembersCache.get(typeName);
+  }
+
+  const response = await fetch(`${API}/type/${typeName}`);
+  if (!response.ok) {
+    throw new Error(`Cannot load type list for ${typeName}.`);
+  }
+
+  const data = await response.json();
+  const names = new Set(data.pokemon.map((entry) => entry.pokemon.name));
+  state.typeMembersCache.set(typeName, names);
+  return names;
+}
+
+function matchesFilters(record, filters) {
+  if (filters.type !== "Any" && !record.types.includes(filters.type)) {
+    return false;
+  }
+
+  if (filters.secondaryType !== "Any" && !record.types.includes(filters.secondaryType)) {
+    return false;
+  }
+
+  if (filters.excludeForms && record.name.includes("-")) {
+    return false;
+  }
+
+  if (filters.generation !== "Any" && record.generation !== filters.generation) {
+    return false;
+  }
+
+  if (filters.habitat !== "Any" && record.habitat !== filters.habitat) {
+    return false;
+  }
+
+  if (!isRankMatch(record.rank, filters.rank, filters.rankOrLower)) {
+    return false;
+  }
+
+  if (filters.legendary === "no_legendaries" && record.legendary) {
+    return false;
+  }
+
+  if (filters.legendary === "only_legendaries" && !record.legendary) {
+    return false;
+  }
+
+  if (!filters.includeMythical && record.mythical) {
+    return false;
+  }
+
+  return true;
+}
+
+function setStatus(text) {
+  els.status.textContent = text;
+}
+
+function render(records) {
+  els.results.textContent = "";
+  els.resultMeta.textContent = records.length
+    ? `${records.length} found from pool ${state.lastPoolSize}`
+    : "No match";
+
+  if (!records.length) {
+    const p = document.createElement("p");
+    p.textContent = "No encounter found with those filters. Try a broader filter set.";
+    els.results.append(p);
+    return;
+  }
+
+  records.forEach((record) => {
+    const fragment = els.cardTemplate.content.cloneNode(true);
+    const sprite = fragment.querySelector(".sprite");
+    const name = fragment.querySelector(".name");
+    const meta = fragment.querySelector(".meta");
+    const extra = fragment.querySelector(".extra");
+    const chips = fragment.querySelector(".chips");
+
+    sprite.src = record.sprite || "";
+    sprite.alt = record.name;
+    name.textContent = `${toLabel(record.name)} #${record.id}`;
+    meta.textContent = `Rank: ${record.rank} | Habitat: ${toLabel(record.habitat)}`;
+    extra.textContent = `BST: ${record.baseStatTotal} | Gen: ${toLabel(record.generation)} | Legendary: ${record.legendary ? "Yes" : "No"} | Mythical: ${record.mythical ? "Yes" : "No"}`;
+
+    record.types.forEach((type) => {
+      const chip = document.createElement("span");
+      chip.className = "chip";
+      chip.textContent = toLabel(type);
+      chips.append(chip);
+    });
+
+    els.results.append(fragment);
+  });
+}
+
+async function generateEncounter() {
+  const requestedCount = Number.parseInt(els.count.value, 10);
+  const count = Number.isNaN(requestedCount) ? 1 : Math.min(Math.max(requestedCount, 1), 12);
+
+  const seedText = els.seed.value.trim() || String(Date.now());
+  els.seed.value = seedText;
+
+  const filters = {
+    nameContains: els.nameFilter.value.trim().toLowerCase(),
+    type: els.typeFilter.value,
+    secondaryType: els.secondaryTypeFilter.value,
+    generation: els.generationFilter.value,
+    habitat: els.habitatFilter.value,
+    rank: els.rankFilter.value,
+    rankOrLower: els.rankOrLower.checked,
+    legendary: els.legendaryFilter.value,
+    includeMythical: els.includeMythical.checked,
+    excludeForms: els.excludeForms.checked,
+    rankUpMethod: els.rankUpMethod.value
+  };
+
+  setStatus("Generating encounter... fetching matching records.");
+  const rng = seededRandom(seedText);
+
+  let baseCandidates = state.allPokemon.filter((name) => name.includes(filters.nameContains));
+
+  if (filters.excludeForms) {
+    baseCandidates = baseCandidates.filter((name) => !name.includes("-"));
+  }
+
+  // Use Type endpoint first to shrink the search space before detail fetches.
+  const typeMembersA = await getTypeMembers(filters.type);
+  const typeMembersB = await getTypeMembers(filters.secondaryType);
+  if (typeMembersA) {
+    baseCandidates = baseCandidates.filter((name) => typeMembersA.has(name));
+  }
+  if (typeMembersB) {
+    baseCandidates = baseCandidates.filter((name) => typeMembersB.has(name));
+  }
+
+  state.lastPoolSize = baseCandidates.length;
+  const orderedCandidates = shuffled(baseCandidates, rng);
+
+  const found = [];
+  const maxChecks = Math.min(orderedCandidates.length, 2200);
+
+  for (let i = 0; i < maxChecks && found.length < count; i += 1) {
+    const candidateName = orderedCandidates[i];
+    try {
+      const record = await getPokemonRecord(candidateName);
+      if (matchesFilters(record, filters)) {
+        found.push(record);
+      }
+    } catch {
+      // Skip failed records and continue generating results.
+    }
+  }
+
+  state.lastResult = found;
+  render(found);
+
+  if (found.length < count) {
+    setStatus(
+      `Found ${found.length}/${count}. Filters may be too strict or require deeper scan. Current seed: ${seedText}`
+    );
+  } else {
+    setStatus(`Generated ${found.length} Pokemon. Seed: ${seedText}`);
+  }
+}
+
+function copyResults() {
+  if (!state.lastResult.length) {
+    setStatus("Nothing to copy yet. Generate first.");
+    return;
+  }
+
+  const lines = state.lastResult.map((r) => {
+    return `${toLabel(r.name)} (#${r.id}) | Rank ${r.rank} | Types: ${r.types.map(toLabel).join(", ")} | Habitat: ${toLabel(r.habitat)}`;
+  });
+
+  const payload = lines.join("\n");
+  navigator.clipboard.writeText(payload)
+    .then(() => setStatus("Encounter copied to clipboard."))
+    .catch(() => setStatus("Clipboard copy failed. Copy manually from cards."));
+}
+
+function randomizeSeed() {
+  els.seed.value = `${Date.now()}-${Math.floor(Math.random() * 1_000_000)}`;
+}
+
+function resetFilters() {
+  els.count.value = 1;
+  els.nameFilter.value = "";
+  els.typeFilter.value = "Any";
+  els.secondaryTypeFilter.value = "Any";
+  els.generationFilter.value = "Any";
+  els.habitatFilter.value = "Any";
+  els.rankFilter.value = "Any";
+  els.legendaryFilter.value = "no_legendaries";
+  els.rankOrLower.checked = true;
+  els.includeMythical.checked = false;
+  els.excludeForms.checked = true;
+  els.rankUpMethod.value = "random";
+  els.seed.value = "";
+  state.lastResult = [];
+  state.lastPoolSize = 0;
+  els.resultMeta.textContent = "";
+  els.results.textContent = "";
+  setStatus("Filters reset.");
+}
+
+async function init() {
+  setupSelects();
+
+  els.randomSeed.addEventListener("click", randomizeSeed);
+  els.generateBtn.addEventListener("click", generateEncounter);
+  els.copyBtn.addEventListener("click", copyResults);
+  els.resetBtn.addEventListener("click", resetFilters);
+
+  try {
+    await loadBaseList();
+  } catch {
+    setStatus("Failed to load Pokemon list. Check internet access and retry.");
+  }
+}
+
+init();

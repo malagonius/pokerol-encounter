@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokerole Encounter Helper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="layout">
+    <section class="panel controls">
+      <h1>Encounter Helper</h1>
+      <p class="subtitle">Pokemon encounter generator with extra filters (including Type).</p>
+
+      <div class="field-grid">
+        <label>
+          Number to generate
+          <input id="count" type="number" min="1" max="12" value="1">
+        </label>
+
+        <label>
+          Pokemon name contains
+          <input id="nameFilter" type="text" placeholder="pik, char, bul...">
+        </label>
+
+        <label>
+          Type
+          <select id="typeFilter"></select>
+        </label>
+
+        <label>
+          Secondary type (optional)
+          <select id="secondaryTypeFilter"></select>
+        </label>
+
+        <label>
+          Generation
+          <select id="generationFilter"></select>
+        </label>
+
+        <label>
+          Habitat
+          <select id="habitatFilter"></select>
+        </label>
+
+        <label>
+          Rank
+          <select id="rankFilter"></select>
+        </label>
+
+        <label>
+          Include legendary
+          <select id="legendaryFilter">
+            <option value="no_legendaries">No legendaries</option>
+            <option value="include_legendaries">Include legendaries</option>
+            <option value="only_legendaries">Only legendaries</option>
+          </select>
+        </label>
+
+        <label>
+          Rank up method (display only)
+          <select id="rankUpMethod">
+            <option value="random">Random</option>
+            <option value="strict">Strict</option>
+          </select>
+        </label>
+
+        <label class="check-row">
+          <input id="rankOrLower" type="checkbox" checked>
+          Recommended rank or lower
+        </label>
+
+        <label class="check-row">
+          <input id="includeMythical" type="checkbox">
+          Include mythical
+        </label>
+
+        <label class="check-row">
+          <input id="excludeForms" type="checkbox" checked>
+          Exclude form variants (name with "-")
+        </label>
+
+        <div class="seed-row">
+          <label>
+            Seed
+            <input id="seed" type="text" placeholder="auto-generated if empty">
+          </label>
+          <button id="randomSeed" type="button" class="ghost">Random Seed</button>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="generateBtn" type="button">Generate encounter</button>
+        <button id="copyBtn" type="button" class="ghost">Copy result</button>
+        <button id="resetBtn" type="button" class="ghost">Reset filters</button>
+      </div>
+
+      <p id="status" class="status">Loading base Pokemon list...</p>
+    </section>
+
+    <section class="panel results">
+      <header class="results-head">
+        <h2>Generated Encounter</h2>
+        <p id="resultMeta" class="result-meta"></p>
+      </header>
+      <div id="results" class="results-grid"></div>
+    </section>
+  </main>
+
+  <template id="cardTemplate">
+    <article class="card">
+      <div class="card-top">
+        <img class="sprite" alt="">
+        <div>
+          <h3 class="name"></h3>
+          <p class="meta"></p>
+          <p class="meta extra"></p>
+        </div>
+      </div>
+      <div class="chips"></div>
+    </article>
+  </template>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
