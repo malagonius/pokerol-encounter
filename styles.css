@@ -277,21 +277,6 @@ button:hover {
   flex-direction: column;
 }
 
-.close-overlay {
-  display: none;
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 1000;
-  background: transparent;
-  border: none;
-  font-size: 1.6rem;
-  line-height: 1;
-  color: var(--ink);
-  cursor: pointer;
-  padding: 4px 8px;
-}
-
 /* Centered modal content container */
 .modal-content {
   position: relative;
@@ -305,13 +290,7 @@ button:hover {
 }
 
 @media (max-width: 940px) {
-  .close-overlay {
-    display: block;
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    z-index: 1001;
-  }
+  /* Close button removed — click backdrop to close */
 }
 
 /* Modal overlay for mobile filter drawer — hidden on desktop, fixed on mobile */

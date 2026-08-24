@@ -75,7 +75,6 @@ const els = {
   cardTemplate: document.getElementById("cardTemplate"),
   filterToggle: document.getElementById("filterToggle"),
   filterOverlay: document.getElementById("filterOverlay"),
-  closeOverlay: document.getElementById("closeOverlay"),
   controlsPanel: document.getElementById("controlsPanel")
 };
 
@@ -531,12 +530,7 @@ async function init() {
     els.filterToggle.addEventListener("click", toggleFilterOverlay);
     els.filterToggle.classList.add("collapsed");
 
-    // Close overlay when clicking the X button
-    if (els.closeOverlay) {
-      els.closeOverlay.addEventListener("click", closeFilterOverlay);
-    }
-
-    // Close overlay when clicking outside the controls panel
+    // Close overlay when clicking the backdrop (outside modal-content)
     els.filterOverlay.addEventListener("click", (e) => {
       if (e.target === els.filterOverlay) {
         closeFilterOverlay();
