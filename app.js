@@ -480,7 +480,7 @@ async function generateEncounter() {
   const orderedCandidates = shuffled(baseCandidates, rng);
 
   const found = [];
-  const maxChecks = Math.min(orderedCandidates.length, 2200);
+  const maxChecks = orderedCandidates.length;
   const batchSize = 50;
 
   let offset = 0;
@@ -488,7 +488,7 @@ async function generateEncounter() {
     const batch = orderedCandidates.slice(offset, Math.min(offset + batchSize, maxChecks));
     offset += batch.length;
 
-    setStatus(`Generating encounter... fetched ${offset}/${maxChecks} (${found.length}/${count} matched).`);
+    setStatus(`Searching... checked ${offset}/${maxChecks} Pokémon (${found.length} match so far).`);
 
     const results = await Promise.allSettled(
       batch.map((name) => getPokemonRecord(name))
