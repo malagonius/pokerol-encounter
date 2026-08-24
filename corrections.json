@@ -1,1919 +1,1925 @@
 {
   "prinplup": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "piplup": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "starly": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "bidoof": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "empoleon": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "staraptor": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "bibarel": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "staravia": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "infernape": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "monferno": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "chimchar": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "torterra": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "grotle": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "turtwig": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "mothim": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "floatzel": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "vespiquen": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "pachirisu": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "buizel": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "wormadam": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "combee": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "cherubi": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "burmy": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "bastiodon": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "budew": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "kricketune": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "shieldon": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "roserade": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "cranidos": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "kricketot": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "luxio": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "luxray": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "rampardos": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "shinx": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "chingling": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "bronzong": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "stunky": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "bronzor": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "mime-jr": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "happiny": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "bonsly": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "skuntank": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "glameow": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "purugly": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "cherrim": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "lopunny": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "ambipom": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "mismagius": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "drifblim": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "honchkrow": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "buneary": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "gastrodon": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "shellos": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "drifloon": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "carnivine": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "finneon": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "snover": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "toxicroak": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "mantyke": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "abomasnow": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "croagunk": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "lumineon": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "skorupi": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "drapion": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "hippopotas": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "spiritomb": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "chatot": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "gible": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "hippowdon": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "garchomp": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "riolu": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "gabite": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "munchlax": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "lucario": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "uxie": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "mamoswine": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "rotom": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "probopass": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "froslass": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "gallade": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "porygon-z": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "dusknoir": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "gliscor": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "glaceon": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "tangrowth": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "yanmega": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "leafeon": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "rhyperior": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "magnezone": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "togekiss": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "magmortar": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "lickilicky": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "weavile": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "electivire": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "arceus": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "snivy": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "pignite": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "emboar": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "tepig": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "servine": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "serperior": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "victini": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "darkrai": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "shaymin": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "cresselia": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "manaphy": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "phione": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "palkia": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "azelf": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "dialga": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "regigigas": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "mesprit": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "giratina": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "heatran": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "panpour": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "munna": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "pansear": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "simipour": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "simisear": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "pidove": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "musharna": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "tranquill": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "pansage": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "simisage": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "patrat": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "samurott": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "liepard": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "dewott": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "watchog": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "oshawott": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "purrloin": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "herdier": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "stoutland": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "lillipup": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "tympole": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "sawk": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "seismitoad": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "gurdurr": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "palpitoad": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "sewaddle": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "throh": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "conkeldurr": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "audino": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "timburr": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "zebstrika": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "swoobat": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "blitzle": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "excadrill": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "unfezant": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "drilbur": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "woobat": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "gigalith": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "roggenrola": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "boldore": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "scraggy": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "crustle": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "scrafty": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "darmanitan": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "maractus": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "darumaka": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "dwebble": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "krookodile": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "krokorok": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "sandile": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "leavanny": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "swadloon": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "whirlipede": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "venipede": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "basculin": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "lilligant": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "scolipede": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "cottonee": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "petilil": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "whimsicott": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "gothitelle": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "cinccino": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "duosion": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "solosis": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "gothita": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "ducklett": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "reuniclus": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "gothorita": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "zoroark": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "minccino": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "cofagrigus": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "sigilyph": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "carracosta": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "yamask": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "zorua": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "archeops": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "archen": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "trubbish": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "tirtouga": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "garbodor": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "joltik": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "ferroseed": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "alomomola": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "galvantula": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "ferrothorn": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "klink": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "jellicent": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "klang": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "amoonguss": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "frillish": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "sawsbuck": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "deerling": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "karrablast": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "escavalier": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "foongus": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "swanna": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "emolga": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "vanillite": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "vanillish": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "vanilluxe": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "shelmet": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "mienshao": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "accelgor": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "cubchoo": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "stunfisk": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "beartic": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "cryogonal": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "haxorus": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "mienfoo": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "fraxure": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "eelektross": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "lampent": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "litwick": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "eelektrik": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "tynamo": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "chandelure": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "axew": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "klinklang": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "beheeyem": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "elgyem": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "durant": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "cobalion": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "terrakion": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "virizion": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "hydreigon": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "larvesta": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "zweilous": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "volcarona": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "deino": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "heatmor": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "pawniard": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "vullaby": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "golett": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "bisharp": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "bouffalant": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "golurk": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "rufflet": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "mandibuzz": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "druddigon": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "braviary": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "delphox": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "greninja": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "frogadier": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "braixen": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "fennekin": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "froakie": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "chesnaught": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "bunnelby": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "diggersby": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "quilladin": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "tornadus": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "chespin": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "meloetta": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "landorus": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "genesect": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "reshiram": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "zekrom": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "keldeo": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "kyurem": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "thundurus": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "skiddo": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "gogoat": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "meowstic": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "honedge": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "furfrou": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "espurr": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "doublade": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "pangoro": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "florges": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "pancham": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "vivillon": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "scatterbug": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "spewpa": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "pyroar": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "floette": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "flabebe": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "litleo": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "fletchinder": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "talonflame": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "fletchling": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "helioptile": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "tyrunt": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "clawitzer": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "heliolisk": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "amaura": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "tyrantrum": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "aurorus": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "sylveon": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "dragalge": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "clauncher": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "skrelp": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "binacle": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "inkay": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "barbaracle": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "aromatisse": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "slurpuff": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "aegislash": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "malamar": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "swirlix": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "spritzee": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "noivern": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "noibat": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "xerneas": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "hoopa": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "yveltal": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "avalugg": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "zygarde": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "diancie": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "bergmite": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "pumpkaboo": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "phantump": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "dedenne": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "klefki": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "hawlucha": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "trevenant": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "goodra": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "gourgeist": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "carbink": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "goomy": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "sliggoo": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "gumshoos": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "toucannon": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "vikavolt": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "yungoos": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "trumbeak": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "charjabug": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "crabominable": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "crabrawler": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "grubbin": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "pikipek": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "volcanion": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "primarina": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "torracat": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "popplio": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "dartrix": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "incineroar": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "rowlet": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "decidueye": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "litten": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "brionne": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "lurantis": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "fomantis": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "morelull": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "bewear": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "araquanid": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "salandit": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "salazzle": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "stufful": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "shiinotic": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "dewpider": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "mudbray": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "toxapex": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "oricorio": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "mareanie": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "cutiefly": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "mudsdale": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "lycanroc": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "ribombee": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "wishiwashi": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "rockruff": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "minior": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "togedemaru": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "silvally": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "komala": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "bruxish": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "mimikyu": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "turtonator": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "drampa": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "type-null": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "pyukumuku": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "palossand": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "oranguru": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "sandygast": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "wimpod": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "passimian": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "tsareena": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "steenee": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "bounsweet": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "comfey": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "golisopod": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "nihilego": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "pheromosa": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "xurkitree": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "kartana": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "buzzwole": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "celesteela": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "guzzlord": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "necrozma": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "lunala": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "tapu-fini": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "tapu-bulu": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "cosmoem": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "tapu-lele": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "tapu-koko": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "solgaleo": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "cosmog": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "kommo-o": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "jangmo-o": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "dhelmise": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "hakamo-o": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "scorbunny": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "skwovet": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "raboot": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "cinderace": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "drizzile": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "inteleon": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "greedent": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "sobble": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "rillaboom": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "thwackey": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "grookey": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "stakataka": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "naganadel": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "melmetal": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "poipole": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "blacephalon": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "zeraora": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "magearna": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "marshadow": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "meltan": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "drednaw": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "yamper": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "coalossal": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "chewtle": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "boltund": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "applin": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "rolycoly": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "dubwool": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "carkol": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "nickit": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "eldegoss": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "blipbug": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "dottler": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "corvisquire": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "thievul": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "gossifleur": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "orbeetle": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "rookidee": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "wooloo": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "corviknight": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "sinistea": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "clobbopus": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "hatenna": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "morgrem": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "hatterene": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "polteageist": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "hattrem": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "impidimp": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "grapploct": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "cramorant": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "sizzlipede": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "silicobra": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "arrokuda": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "toxtricity": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "barraskewda": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "sandaconda": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "centiskorch": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "appletun": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "flapple": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "toxel": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "morpeko": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "eiscue": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "indeedee": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "cufant": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "dracozolt": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "frosmoth": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "stonjourner": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "copperajah": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "snom": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "pincurchin": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "perrserker": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "runerigus": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "cursola": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "alcremie": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "obstagoon": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "milcery": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "mr-rime": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "falinks": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "grimmsnarl": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "sirfetchd": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "zarude": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "glastrier": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "regidrago": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "kleavor": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "calyrex": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "spectrier": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "wyrdeer": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "regieleki": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "urshifu": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "kubfu": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "zacian": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "eternatus": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "dreepy": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "zamazenta": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "duraludon": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "dracovish": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "arctozolt": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "arctovish": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "dragapult": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "drakloak": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "oinkologne": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "quaquaval": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "tarountula": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "lechonk": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "quaxly": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "quaxwell": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "spidops": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "nymble": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "sneasler": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "overqwil": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "skeledirge": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "lokix": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "basculegion": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "crocalor": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "meowscarada": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "floragato": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "fuecoco": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "ursaluna": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "sprigatito": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "enamorus": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "tadbulb": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "naclstack": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "garganacl": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "armarouge": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "bellibolt": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "wattrel": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "charcadet": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "ceruledge": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "dolliv": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "arboliva": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "dachsbun": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "tandemaus": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "nacli": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "squawkabilly": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "pawmo": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "maushold": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "fidough": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "smoliv": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "pawmot": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "pawmi": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "flittle": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "scovillain": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "rellor": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "tinkatuff": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "wiglett": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "rabsca": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "tinkaton": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "tinkatink": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "espathra": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "klawf": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "brambleghast": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "toedscruel": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "toedscool": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "shroodle": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "grafaiai": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "capsakid": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "bramblin": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "kilowattrel": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "mabosstiff": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "maschiff": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "veluza": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "cetoddle": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "clodsire": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "cetitan": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "flamigo": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "houndstone": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "tatsugiri": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "dondozo": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "annihilape": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "varoom": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "orthworm": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "finizen": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "wugtrio": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "bombirdier": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "greavard": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "glimmora": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "glimmet": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "cyclizar": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "palafin": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "revavroom": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "iron-hands": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "iron-jugulis": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "iron-thorns": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "iron-moth": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "gholdengo": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "baxcalibur": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "gimmighoul": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "arctibax": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "frigibax": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "great-tusk": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "iron-bundle": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "brute-bonnet": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "scream-tail": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "iron-treads": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "flutter-mane": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "sandy-shocks": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "slither-wing": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "farigiraf": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "kingambit": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "dudunsparce": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "munkidori": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "okidogi": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "fezandipiti": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "sinistcha": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "archaludon": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "hydrapple": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "poltchageist": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "gouging-fire": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "ogerpon": {
-    "habitat": "unknown"
+    "habitat": "grassland"
   },
   "koraidon": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "wo-chien": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "iron-leaves": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "miraidon": {
-    "habitat": "unknown"
+    "habitat": "rare"
   },
   "walking-wake": {
-    "habitat": "unknown"
+    "habitat": "sea"
   },
   "dipplin": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "chi-yu": {
-    "habitat": "unknown"
+    "habitat": "rough-terrain"
   },
   "iron-valiant": {
-    "habitat": "unknown"
+    "habitat": "forest"
   },
   "roaring-moon": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "ting-lu": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "chien-pao": {
-    "habitat": "unknown"
+    "habitat": "waters-edge"
   },
   "iron-boulder": {
-    "habitat": "unknown"
+    "habitat": "cave"
   },
   "terapagos": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "pecharunt": {
-    "habitat": "unknown"
+    "habitat": "urban"
   },
   "iron-crown": {
-    "habitat": "unknown"
+    "habitat": "mountain"
   },
   "raging-bolt": {
-    "habitat": "unknown"
+    "habitat": "urban"
+  },
+  "paldean-tauros": {
+    "habitat": "grassland"
+  },
+  "gourdeist": {
+    "habitat": "forest"
   }
 }
