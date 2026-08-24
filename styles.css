@@ -33,6 +33,7 @@ body {
 
 .controls {
   min-width: 0;
+  overflow-y: auto;
 }
 
 .panel {
@@ -244,6 +245,37 @@ button:hover {
   font-weight: 800;
 }
 
+/* Filter toggle button — only visible on mobile */
+.filter-toggle {
+  display: none;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 800;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+.filter-toggle:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.filter-toggle-icon {
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+/* Controls header wrapper for mobile layout */
+.controls-header {
+  display: flex;
+  flex-direction: column;
+}
+
 @media (min-width: 680px) {
   .seed-row {
     grid-template-columns: 1fr auto;
@@ -262,6 +294,11 @@ button:hover {
   .layout {
     grid-template-columns: 420px 1fr;
   }
+
+  /* On desktop, cap the controls height so vertical scrollbar appears when needed */
+  .controls {
+    max-height: calc(100vh - 40px);
+  }
 }
 
 @media (min-width: 1400px) {
@@ -274,9 +311,66 @@ button:hover {
 @media (max-width: 940px) {
   .layout {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* On mobile, filters are a collapsible drawer */
+  .controls {
+    max-height: 60px;
+    padding: 10px;
+    overflow: hidden;
+    transition: max-height 300ms ease-out, padding 300ms ease-out;
+  }
+
+  .controls.expanded {
+    max-height: 80vh;
+    padding: 16px;
+    overflow-y: auto;
+  }
+
+  /* Hide the filters content when collapsed (keep header/toggle visible) */
+  .controls:not(.expanded) .field-grid,
+  .controls:not(.expanded) .actions,
+  .controls:not(.expanded) .status {
+    display: none;
+  }
+
+  .controls-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .controls-header h1 {
+    margin: 0;
+  }
+
+  .controls-header .subtitle {
+    display: none;
+  }
+
+  /* The toggle button is always visible on mobile */
+  .filter-toggle {
+    display: block;
+  }
+
+  /* Rotate the icon when expanded */
+  .controls.expanded .filter-toggle-icon {
+    transform: rotate(-180deg);
   }
 
   .result-meta {
     text-align: left;
+  }
+}
+
+/* Utility class for mobile-only elements */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 940px) {
+  .mobile-only {
+    display: block;
   }
 }
