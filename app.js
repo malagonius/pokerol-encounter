@@ -32,7 +32,7 @@ const TYPE_OPTIONS = [
 ];
 const HABITATS = [
   "Any",
-  "cave", "forest", "grassland", "mountain", "rare", "rough-terrain", "sea", "urban", "waters-edge", "unknown"
+  "cave", "forest", "grassland", "mountain", "rare", "rough-terrain", "sea", "urban", "waters-edge"
 ];
 const GENERATIONS = [
   "Any",
@@ -50,6 +50,7 @@ const GENERATIONS = [
 const state = {
   allPokemon: [],
   cache: new Map(),
+  corrections: {},
   typeMembersCache: new Map(),
   lastResult: [],
   lastPoolSize: 0
@@ -268,6 +269,18 @@ async function loadBaseList() {
   if (!response.ok) throw new Error("Cannot load Pokemon list from PokeAPI.");
   const data = await response.json();
   state.allPokemon = data.results.map((p) => p.name);
+
+  // Load local corrections to fix data integrity issues (e.g. wrong habitats)
+  try {
+    const corrResponse = await fetch("./corrections.json");
+    if (corrResponse.ok) {
+      state.corrections = await corrResponse.json();
+    }
+  } catch (e) {
+    // Corrections file is optional — proceed without it
+    console.warn("Corrections file not loaded:", e);
+  }
+
   setStatus(`Loaded ${state.allPokemon.length} Pokemon. Ready.`);
 }
 
@@ -301,6 +314,22 @@ async function getPokemonRecord(name) {
     rank: rankFromBst(baseStatTotal),
     sprite: pokemon.sprites.other["official-artwork"].front_default || pokemon.sprites.front_default
   };
+
+  // Apply corrections from overrides file.
+  // If the API returned "unknown" for a field, check the corrections file.
+  // If a correction exists, use it; otherwise keep the API value (which is "unknown").
+  if (state.corrections[record.name]) {
+    const correction = state.corrections[record.name];
+    if (correction.habitat) {
+      record.habitat = correction.habitat;
+    }
+    if (correction.types && Array.isArray(correction.types)) {
+      record.types = correction.types;
+    }
+    if (correction.generation) {
+      record.generation = correction.generation;
+    }
+  }
 
   state.cache.set(name, record);
   return record;
