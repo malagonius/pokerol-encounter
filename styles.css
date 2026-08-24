@@ -74,6 +74,7 @@ h1, h2, h3 {
 
 .option-grid {
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 6px;
   max-height: 150px;
   overflow: auto;
@@ -125,6 +126,10 @@ button:hover {
   gap: 8px;
 }
 
+.check-row.type-row {
+  grid-template-columns: 16px auto 1fr;
+}
+
 .check-row input[type="checkbox"] {
   width: auto;
 }
@@ -133,7 +138,8 @@ button:hover {
   grid-template-columns: auto auto 1fr;
 }
 
-.rank-icon {
+.rank-icon,
+.type-icon {
   width: 18px;
   height: 18px;
   object-fit: contain;

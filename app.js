@@ -24,6 +24,7 @@ const RANK_ICON_BY_METHOD = {
   CHAMPION: "ChampionBall.png"
 };
 const RANK_ICON_BASE_URL = "https://pokeroledex.nl/images/rank/";
+const TYPE_ICON_BASE_URL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/";
 const TYPE_OPTIONS = [
   "Any",
   "normal", "fire", "water", "electric", "grass", "ice", "fighting", "poison", "ground", "flying",
@@ -78,9 +79,12 @@ const els = {
 };
 
 function setupSelects() {
-  renderCheckboxGroup(els.typeOptions, "type", TYPE_OPTIONS);
+  const typeIconResolver = (type) => `${TYPE_ICON_BASE_URL}${type}.svg`;
+  const upperLabel = (value) => toLabel(value).toUpperCase();
+
+  renderCheckboxGroup(els.typeOptions, "type", TYPE_OPTIONS, typeIconResolver, null, "type-row");
   renderCheckboxGroup(els.habitatOptions, "habitat", HABITATS);
-  renderCheckboxGroup(els.generationOptions, "generation", GENERATIONS);
+  renderCheckboxGroup(els.generationOptions, "generation", GENERATIONS, null, upperLabel);
   renderRankMethodGroup(els.rankMethodOptions, "rankMethod", RANK_METHODS);
 }
 
@@ -94,10 +98,10 @@ function addOption(select, value) {
   select.append(option);
 }
 
-function renderCheckboxGroup(container, groupName, values) {
+function renderCheckboxGroup(container, groupName, values, iconResolver, labelResolver, rowClassName) {
   values.forEach((value) => {
     const row = document.createElement("label");
-    row.className = "check-row";
+    row.className = rowClassName ? `check-row ${rowClassName}` : "check-row";
 
     const input = document.createElement("input");
     input.type = "checkbox";
@@ -108,9 +112,19 @@ function renderCheckboxGroup(container, groupName, values) {
     input.addEventListener("change", () => onCheckboxGroupChange(groupName, input.value));
 
     const text = document.createElement("span");
-    text.textContent = value === "Any" ? "Any" : toLabel(value);
+    const labelFn = labelResolver || toLabel;
+    text.textContent = value === "Any" ? "Any" : labelFn(value);
 
     row.append(input, text);
+
+    if (iconResolver && value !== "Any") {
+      const icon = document.createElement("img");
+      icon.className = "type-icon";
+      icon.alt = `${labelFn(value)} icon`;
+      icon.src = iconResolver(value);
+      row.prepend(icon);
+    }
+
     container.append(row);
   });
 }
