@@ -1,1 +1,353 @@
-{}
+{
+  "psyduck": {
+    "habitat": "waters-edge"
+  },
+  "golduck": {
+    "habitat": "waters-edge"
+  },
+  "psyduck-galar": {
+    "habitat": "waters-edge"
+  },
+  "golduck-galar": {
+    "habitat": "waters-edge"
+  },
+  "basurio": {
+    "habitat": "sea"
+  },
+  "mrmime-galar": {
+    "habitat": "grassland"
+  },
+  "mr-mime-galar": {
+    "habitat": "grassland"
+  },
+  "mr-rime": {
+    "habitat": "grassland"
+  },
+  "mime-jr": {
+    "habitat": "grassland"
+  },
+  "porygon": {
+    "habitat": "urban"
+  },
+  "porygon-z": {
+    "habitat": "urban"
+  },
+  "porygon2": {
+    "habitat": "urban"
+  },
+  "tyrogue": {
+    "habitat": "urban"
+  },
+  "hitmonlee": {
+    "habitat": "urban"
+  },
+  "hitmonchan": {
+    "habitat": "urban"
+  },
+  "hitmontop": {
+    "habitat": "urban"
+  },
+  "mew": {
+    "habitat": "forest"
+  },
+  "mewtwo": {
+    "habitat": "cave"
+  },
+  "meltan": {
+    "habitat": "mountain"
+  },
+  "melmetal": {
+    "habitat": "mountain"
+  },
+  "melmetal-galar": {
+    "habitat": "mountain"
+  },
+  "articuno": {
+    "habitat": "mountain"
+  },
+  "zapdos": {
+    "habitat": "mountain"
+  },
+  "moltres": {
+    "habitat": "mountain"
+  },
+  "raikou": {
+    "habitat": "grassland"
+  },
+  "entei": {
+    "habitat": "grassland"
+  },
+  "suicune": {
+    "habitat": "waters-edge"
+  },
+  "regirock": {
+    "habitat": "cave"
+  },
+  "regice": {
+    "habitat": "cave"
+  },
+  "registeel": {
+    "habitat": "cave"
+  },
+  "latias": {
+    "habitat": "grassland"
+  },
+  "latios": {
+    "habitat": "grassland"
+  },
+  "kyogre": {
+    "habitat": "sea"
+  },
+  "groudon": {
+    "habitat": "mountain"
+  },
+  "rayquaza": {
+    "habitat": "mountain"
+  },
+  "dialga": {
+    "habitat": "mountain"
+  },
+  "palkia": {
+    "habitat": "sea"
+  },
+  "heatran": {
+    "habitat": "cave"
+  },
+  "giratina": {
+    "habitat": "cave"
+  },
+  "cresselia": {
+    "habitat": "grassland"
+  },
+  "phione": {
+    "habitat": "sea"
+  },
+  "manaphy": {
+    "habitat": "sea"
+  },
+  "darkrai": {
+    "habitat": "grassland"
+  },
+  "arceus": {
+    "habitat": "mountain"
+  },
+  "archeops": {
+    "habitat": "mountain"
+  },
+  "tirtouga": {
+    "habitat": "waters-edge"
+  },
+  "carracosta": {
+    "habitat": "waters-edge"
+  },
+  "tirtouga-arch": {
+    "habitat": "waters-edge"
+  },
+  "carracosta-arch": {
+    "habitat": "waters-edge"
+  },
+  "tynamo": {
+    "habitat": "sea"
+  },
+  "ephidna": {
+    "habitat": "sea"
+  },
+  "eelektrik": {
+    "habitat": "cave"
+  },
+  "eelektross": {
+    "habitat": "cave"
+  },
+  "axew": {
+    "habitat": "mountain"
+  },
+  "fraxure": {
+    "habitat": "mountain"
+  },
+  "haxorus": {
+    "habitat": "mountain"
+  },
+  "tirtouga": {
+    "habitat": "waters-edge"
+  },
+  "archen": {
+    "habitat": "waters-edge"
+  },
+  "archeops": {
+    "habitat": "waters-edge"
+  },
+  "cubchoo": {
+    "habitat": "grassland"
+  },
+  "cubchoo-alola": {
+    "habitat": "grassland"
+  },
+  "bearticuno": {
+    "habitat": "mountain"
+  },
+  "bearticuno-galar": {
+    "habitat": "mountain"
+  },
+  "sudowoodo": {
+    "habitat": "urban"
+  },
+  "bonsly": {
+    "habitat": "urban"
+  },
+  "chingling": {
+    "habitat": "forest"
+  },
+  "bronzor": {
+    "habitat": "cave"
+  },
+  "bronzong": {
+    "habitat": "cave"
+  },
+  "bonsly": {
+    "habitat": "urban"
+  },
+  "mime-jr": {
+    "habitat": "grassland"
+  },
+  "happiny": {
+    "habitat": "urban"
+  },
+  "chatot": {
+    "habitat": "grassland"
+  },
+  "spiritomb": {
+    "habitat": "cave"
+  },
+  "gible": {
+    "habitat": "mountain"
+  },
+  "gabite": {
+    "habitat": "mountain"
+  },
+  "garchomp": {
+    "habitat": "mountain"
+  },
+  "rookidee": {
+    "habitat": "urban"
+  },
+  "corvisquire": {
+    "habitat": "urban"
+  },
+  "corviknight": {
+    "habitat": "urban"
+  },
+  "blipbug": {
+    "habitat": "forest"
+  },
+  "dottler": {
+    "habitat": "forest"
+  },
+  "orbeetle": {
+    "habitat": "grassland"
+  },
+  "skwovet": {
+    "habitat": "forest"
+  },
+  "greedent": {
+    "habitat": "forest"
+  },
+  "nickit": {
+    "habitat": "urban"
+  },
+  "thievul": {
+    "habitat": "urban"
+  },
+  "gossamer": {
+    "habitat": "grassland"
+  },
+  "gossamer-hisui": {
+    "habitat": "grassland"
+  },
+  "salmon-idle": {
+    "habitat": "sea"
+  },
+  "salmon-running": {
+    "habitat": "sea"
+  },
+  "salmon-basin": {
+    "habitat": "sea"
+  },
+  "salmon-rapid": {
+    "habitat": "sea"
+  },
+  "salmon-pit": {
+    "habitat": "sea"
+  },
+  "salmon-aqua": {
+    "habitat": "sea"
+  },
+  "salmon-dynamax": {
+    "habitat": "sea"
+  },
+  "salmon-gmax": {
+    "habitat": "sea"
+  },
+  "salmon-mega": {
+    "habitat": "sea"
+  },
+  "salmon-primal": {
+    "habitat": "sea"
+  },
+  "salmon-origin": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-infrared": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax-infrared": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax-eternamax": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax-eternamax-infrared": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-infrared": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-infrared": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-eternamax": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-eternamax-infrared": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax-infrared": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax-infrared": {
+    "habitat": "sea"
+  },
+  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax": {
+    "habitat": "sea"
+  }
+}
