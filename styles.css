@@ -280,20 +280,26 @@ button:hover {
 .close-overlay {
   display: none;
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
   background: transparent;
   border: none;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  line-height: 1;
   color: var(--ink);
   cursor: pointer;
   padding: 4px 8px;
-  line-height: 1;
 }
 
-/* Mobile-only elements hidden by default, shown in mobile media query */
-.mobile-only {
-  display: none;
+@media (max-width: 940px) {
+  .close-overlay {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+  }
 }
 
 /* Modal overlay for mobile filter drawer — hidden on desktop, fixed on mobile */
@@ -334,7 +340,7 @@ button:hover {
   }
 
   .controls-header {
-    position: relative;
+    /* close button is now a fixed sibling of the controls panel */
   }
 
   /* Subtitle visible on desktop */
@@ -388,8 +394,6 @@ button:hover {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-    padding-right: 32px;
   }
 
   .controls-header h1 {
@@ -401,18 +405,18 @@ button:hover {
     display: none;
   }
 
-  /* Close button visible on mobile */
-  .mobile-only {
-    display: block;
-  }
-
   /* Toggle button visible on mobile, fixed at bottom */
   .filter-toggle {
     display: block;
   }
 
-  /* Modal overlay styles for mobile */
+  /* Modal overlay styles for mobile — overlay is hidden by default,
+     shown (display: flex) only when .active class is present */
   .filter-overlay {
+    display: none;
+  }
+
+  .filter-overlay.active {
     display: flex;
   }
 
