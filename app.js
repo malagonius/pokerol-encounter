@@ -57,8 +57,7 @@ const state = {
 const els = {
   count: document.getElementById("count"),
   nameFilter: document.getElementById("nameFilter"),
-  typeFilter: document.getElementById("typeFilter"),
-  secondaryTypeFilter: document.getElementById("secondaryTypeFilter"),
+  typeOptions: document.getElementById("typeOptions"),
   generationOptions: document.getElementById("generationOptions"),
   habitatOptions: document.getElementById("habitatOptions"),
   rankMethodOptions: document.getElementById("rankMethodOptions"),
@@ -79,8 +78,7 @@ const els = {
 };
 
 function setupSelects() {
-  TYPE_OPTIONS.forEach((type) => addOption(els.typeFilter, type));
-  TYPE_OPTIONS.forEach((type) => addOption(els.secondaryTypeFilter, type));
+  renderCheckboxGroup(els.typeOptions, "type", TYPE_OPTIONS);
   renderCheckboxGroup(els.habitatOptions, "habitat", HABITATS);
   renderCheckboxGroup(els.generationOptions, "generation", GENERATIONS);
   renderRankMethodGroup(els.rankMethodOptions, "rankMethod", RANK_METHODS);
@@ -315,11 +313,9 @@ async function getTypeMembers(typeName) {
 }
 
 function matchesFilters(record, filters) {
-  if (filters.type !== "Any" && !record.types.includes(filters.type)) {
-    return false;
-  }
-
-  if (filters.secondaryType !== "Any" && !record.types.includes(filters.secondaryType)) {
+  // Type filter: OR logic — if ANY selected type is in the record's types, it matches
+  const selectedTypes = filters.types.filter((t) => t !== "Any");
+  if (selectedTypes.length > 0 && !selectedTypes.some((t) => record.types.includes(t))) {
     return false;
   }
 
@@ -403,8 +399,7 @@ async function generateEncounter() {
   const seedText = `${Date.now()}-${Math.floor(Math.random() * 1_000_000)}`;
   const filters = {
     nameContains: els.nameFilter.value.trim().toLowerCase(),
-    type: els.typeFilter.value,
-    secondaryType: els.secondaryTypeFilter.value,
+    types: readCheckboxGroupValues("type"),
     generations: readCheckboxGroupValues("generation"),
     habitats: readCheckboxGroupValues("habitat"),
     rankMethods: readCheckboxGroupValues("rankMethod"),
@@ -424,13 +419,18 @@ async function generateEncounter() {
   }
 
   // Use Type endpoint first to shrink the search space before detail fetches.
-  const typeMembersA = await getTypeMembers(filters.type);
-  const typeMembersB = await getTypeMembers(filters.secondaryType);
-  if (typeMembersA) {
-    baseCandidates = baseCandidates.filter((name) => typeMembersA.has(name));
-  }
-  if (typeMembersB) {
-    baseCandidates = baseCandidates.filter((name) => typeMembersB.has(name));
+  // OR logic: union all selected type member sets.
+  const selectedTypes = filters.types.filter((t) => t !== "Any");
+  if (selectedTypes.length > 0) {
+    const typeMemberSets = await Promise.all(
+      selectedTypes.map((t) => getTypeMembers(t))
+    );
+    // Union of all type member sets — a Pokemon matches if it's in ANY type set
+    const unionSet = new Set();
+    typeMemberSets.forEach((set) => {
+      if (set) set.forEach((name) => unionSet.add(name));
+    });
+    baseCandidates = baseCandidates.filter((name) => unionSet.has(name));
   }
 
   state.lastPoolSize = baseCandidates.length;

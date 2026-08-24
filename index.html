@@ -36,15 +36,10 @@
           <input id="nameFilter" type="text" placeholder="pik, char, bul...">
         </label>
 
-        <label>
-          Type
-          <select id="typeFilter"></select>
-        </label>
-
-        <label>
-          Secondary type (optional)
-          <select id="secondaryTypeFilter"></select>
-        </label>
+        <fieldset class="multi-fieldset" id="typeGroup">
+          <legend>Type (OR)</legend>
+          <div id="typeOptions" class="option-grid"></div>
+        </fieldset>
 
         <fieldset class="multi-fieldset" id="generationGroup">
           <legend>Generation</legend>
