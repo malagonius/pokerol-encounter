@@ -127,7 +127,7 @@ button:hover {
 }
 
 .check-row.type-row {
-  grid-template-columns: 16px auto 1fr;
+  grid-template-columns: 22px auto 1fr;
 }
 
 .check-row input[type="checkbox"] {
@@ -144,6 +144,43 @@ button:hover {
   height: 18px;
   object-fit: contain;
 }
+
+/* Type icons: colored via CSS mask technique
+   A colored circular span uses the white SVG as a mask,
+   so only the icon shape is visible in the type's color */
+.type-icon-span {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* Use the background-image (set in JS) as a mask — shows the SVG shape */
+  -webkit-mask: var(--type-icon-url) center / contain no-repeat;
+  mask: var(--type-icon-url) center / contain no-repeat;
+  /* The background color is set by the type-specific rules below */
+}
+
+.type-icon-span[data-type="normal"] { background-color: #9fa19d; }
+.type-icon-span[data-type="fire"] { background-color: #e85d4a; }
+.type-icon-span[data-type="water"] { background-color: #4a91da; }
+.type-icon-span[data-type="electric"] { background-color: #f6d83e; }
+.type-icon-span[data-type="grass"] { background-color: #68c141; }
+.type-icon-span[data-type="ice"] { background-color: #95d4d9; }
+.type-icon-span[data-type="fighting"] { background-color: #c4313a; }
+.type-icon-span[data-type="poison"] { background-color: #a24299; }
+.type-icon-span[data-type="ground"] { background-color: #d9b33f; }
+.type-icon-span[data-type="flying"] { background-color: #8fb0f7; }
+.type-icon-span[data-type="psychic"] { background-color: #f65779; }
+.type-icon-span[data-type="bug"] { background-color: #a9c41e; }
+.type-icon-span[data-type="rock"] { background-color: #c4a47c; }
+.type-icon-span[data-type="ghost"] { background-color: #64589c; }
+.type-icon-span[data-type="dragon"] { background-color: #6b48d9; }
+.type-icon-span[data-type="dark"] { background-color: #665447; }
+.type-icon-span[data-type="steel"] { background-color: #89939c; }
+.type-icon-span[data-type="fairy"] { background-color: #e97099; }
+
 
 .option-grid .check-row {
   font-size: 0.88rem;

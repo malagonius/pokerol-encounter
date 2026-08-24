@@ -81,7 +81,6 @@ const els = {
 
 function setupSelects() {
   const typeIconResolver = (type) => `${TYPE_ICON_BASE_URL}${type}.svg`;
-  const upperLabel = (value) => toLabel(value).toUpperCase();
   const genLabel = (value) => value === "Any" ? "Any" : value.replace("generation-", "").toUpperCase();
 
   renderCheckboxGroup(els.typeOptions, "type", TYPE_OPTIONS, typeIconResolver, null, "type-row");
@@ -120,10 +119,10 @@ function renderCheckboxGroup(container, groupName, values, iconResolver, labelRe
     row.append(input, text);
 
     if (iconResolver && value !== "Any") {
-      const icon = document.createElement("img");
-      icon.className = "type-icon";
-      icon.alt = `${labelFn(value)} icon`;
-      icon.src = iconResolver(value);
+      const icon = document.createElement("span");
+      icon.className = "type-icon-span";
+      icon.setAttribute("data-type", value);
+      icon.style.setProperty("--type-icon-url", `url("${iconResolver(value)}")`);
       row.prepend(icon);
     }
 
