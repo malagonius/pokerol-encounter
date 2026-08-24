@@ -1,353 +1,1919 @@
 {
-  "psyduck": {
-    "habitat": "waters-edge"
+  "prinplup": {
+    "habitat": "unknown"
   },
-  "golduck": {
-    "habitat": "waters-edge"
+  "piplup": {
+    "habitat": "unknown"
   },
-  "psyduck-galar": {
-    "habitat": "waters-edge"
+  "starly": {
+    "habitat": "unknown"
   },
-  "golduck-galar": {
-    "habitat": "waters-edge"
+  "bidoof": {
+    "habitat": "unknown"
   },
-  "basurio": {
-    "habitat": "sea"
+  "empoleon": {
+    "habitat": "unknown"
   },
-  "mrmime-galar": {
-    "habitat": "grassland"
+  "staraptor": {
+    "habitat": "unknown"
   },
-  "mr-mime-galar": {
-    "habitat": "grassland"
+  "bibarel": {
+    "habitat": "unknown"
   },
-  "mr-rime": {
-    "habitat": "grassland"
+  "staravia": {
+    "habitat": "unknown"
   },
-  "mime-jr": {
-    "habitat": "grassland"
+  "infernape": {
+    "habitat": "unknown"
   },
-  "porygon": {
-    "habitat": "urban"
+  "monferno": {
+    "habitat": "unknown"
   },
-  "porygon-z": {
-    "habitat": "urban"
+  "chimchar": {
+    "habitat": "unknown"
   },
-  "porygon2": {
-    "habitat": "urban"
+  "torterra": {
+    "habitat": "unknown"
   },
-  "tyrogue": {
-    "habitat": "urban"
+  "grotle": {
+    "habitat": "unknown"
   },
-  "hitmonlee": {
-    "habitat": "urban"
+  "turtwig": {
+    "habitat": "unknown"
   },
-  "hitmonchan": {
-    "habitat": "urban"
+  "mothim": {
+    "habitat": "unknown"
   },
-  "hitmontop": {
-    "habitat": "urban"
+  "floatzel": {
+    "habitat": "unknown"
   },
-  "mew": {
-    "habitat": "forest"
+  "vespiquen": {
+    "habitat": "unknown"
   },
-  "mewtwo": {
-    "habitat": "cave"
+  "pachirisu": {
+    "habitat": "unknown"
   },
-  "meltan": {
-    "habitat": "mountain"
+  "buizel": {
+    "habitat": "unknown"
   },
-  "melmetal": {
-    "habitat": "mountain"
+  "wormadam": {
+    "habitat": "unknown"
   },
-  "melmetal-galar": {
-    "habitat": "mountain"
+  "combee": {
+    "habitat": "unknown"
   },
-  "articuno": {
-    "habitat": "mountain"
+  "cherubi": {
+    "habitat": "unknown"
   },
-  "zapdos": {
-    "habitat": "mountain"
+  "burmy": {
+    "habitat": "unknown"
   },
-  "moltres": {
-    "habitat": "mountain"
+  "bastiodon": {
+    "habitat": "unknown"
   },
-  "raikou": {
-    "habitat": "grassland"
+  "budew": {
+    "habitat": "unknown"
   },
-  "entei": {
-    "habitat": "grassland"
+  "kricketune": {
+    "habitat": "unknown"
   },
-  "suicune": {
-    "habitat": "waters-edge"
+  "shieldon": {
+    "habitat": "unknown"
   },
-  "regirock": {
-    "habitat": "cave"
+  "roserade": {
+    "habitat": "unknown"
   },
-  "regice": {
-    "habitat": "cave"
+  "cranidos": {
+    "habitat": "unknown"
   },
-  "registeel": {
-    "habitat": "cave"
+  "kricketot": {
+    "habitat": "unknown"
   },
-  "latias": {
-    "habitat": "grassland"
+  "luxio": {
+    "habitat": "unknown"
   },
-  "latios": {
-    "habitat": "grassland"
+  "luxray": {
+    "habitat": "unknown"
   },
-  "kyogre": {
-    "habitat": "sea"
+  "rampardos": {
+    "habitat": "unknown"
   },
-  "groudon": {
-    "habitat": "mountain"
-  },
-  "rayquaza": {
-    "habitat": "mountain"
-  },
-  "dialga": {
-    "habitat": "mountain"
-  },
-  "palkia": {
-    "habitat": "sea"
-  },
-  "heatran": {
-    "habitat": "cave"
-  },
-  "giratina": {
-    "habitat": "cave"
-  },
-  "cresselia": {
-    "habitat": "grassland"
-  },
-  "phione": {
-    "habitat": "sea"
-  },
-  "manaphy": {
-    "habitat": "sea"
-  },
-  "darkrai": {
-    "habitat": "grassland"
-  },
-  "arceus": {
-    "habitat": "mountain"
-  },
-  "archeops": {
-    "habitat": "mountain"
-  },
-  "tirtouga": {
-    "habitat": "waters-edge"
-  },
-  "carracosta": {
-    "habitat": "waters-edge"
-  },
-  "tirtouga-arch": {
-    "habitat": "waters-edge"
-  },
-  "carracosta-arch": {
-    "habitat": "waters-edge"
-  },
-  "tynamo": {
-    "habitat": "sea"
-  },
-  "ephidna": {
-    "habitat": "sea"
-  },
-  "eelektrik": {
-    "habitat": "cave"
-  },
-  "eelektross": {
-    "habitat": "cave"
-  },
-  "axew": {
-    "habitat": "mountain"
-  },
-  "fraxure": {
-    "habitat": "mountain"
-  },
-  "haxorus": {
-    "habitat": "mountain"
-  },
-  "tirtouga": {
-    "habitat": "waters-edge"
-  },
-  "archen": {
-    "habitat": "waters-edge"
-  },
-  "archeops": {
-    "habitat": "waters-edge"
-  },
-  "cubchoo": {
-    "habitat": "grassland"
-  },
-  "cubchoo-alola": {
-    "habitat": "grassland"
-  },
-  "bearticuno": {
-    "habitat": "mountain"
-  },
-  "bearticuno-galar": {
-    "habitat": "mountain"
-  },
-  "sudowoodo": {
-    "habitat": "urban"
-  },
-  "bonsly": {
-    "habitat": "urban"
+  "shinx": {
+    "habitat": "unknown"
   },
   "chingling": {
-    "habitat": "forest"
-  },
-  "bronzor": {
-    "habitat": "cave"
+    "habitat": "unknown"
   },
   "bronzong": {
-    "habitat": "cave"
+    "habitat": "unknown"
   },
-  "bonsly": {
-    "habitat": "urban"
+  "stunky": {
+    "habitat": "unknown"
+  },
+  "bronzor": {
+    "habitat": "unknown"
   },
   "mime-jr": {
-    "habitat": "grassland"
+    "habitat": "unknown"
   },
   "happiny": {
-    "habitat": "urban"
+    "habitat": "unknown"
   },
-  "chatot": {
-    "habitat": "grassland"
+  "bonsly": {
+    "habitat": "unknown"
+  },
+  "skuntank": {
+    "habitat": "unknown"
+  },
+  "glameow": {
+    "habitat": "unknown"
+  },
+  "purugly": {
+    "habitat": "unknown"
+  },
+  "cherrim": {
+    "habitat": "unknown"
+  },
+  "lopunny": {
+    "habitat": "unknown"
+  },
+  "ambipom": {
+    "habitat": "unknown"
+  },
+  "mismagius": {
+    "habitat": "unknown"
+  },
+  "drifblim": {
+    "habitat": "unknown"
+  },
+  "honchkrow": {
+    "habitat": "unknown"
+  },
+  "buneary": {
+    "habitat": "unknown"
+  },
+  "gastrodon": {
+    "habitat": "unknown"
+  },
+  "shellos": {
+    "habitat": "unknown"
+  },
+  "drifloon": {
+    "habitat": "unknown"
+  },
+  "carnivine": {
+    "habitat": "unknown"
+  },
+  "finneon": {
+    "habitat": "unknown"
+  },
+  "snover": {
+    "habitat": "unknown"
+  },
+  "toxicroak": {
+    "habitat": "unknown"
+  },
+  "mantyke": {
+    "habitat": "unknown"
+  },
+  "abomasnow": {
+    "habitat": "unknown"
+  },
+  "croagunk": {
+    "habitat": "unknown"
+  },
+  "lumineon": {
+    "habitat": "unknown"
+  },
+  "skorupi": {
+    "habitat": "unknown"
+  },
+  "drapion": {
+    "habitat": "unknown"
+  },
+  "hippopotas": {
+    "habitat": "unknown"
   },
   "spiritomb": {
-    "habitat": "cave"
+    "habitat": "unknown"
+  },
+  "chatot": {
+    "habitat": "unknown"
   },
   "gible": {
-    "habitat": "mountain"
+    "habitat": "unknown"
   },
-  "gabite": {
-    "habitat": "mountain"
+  "hippowdon": {
+    "habitat": "unknown"
   },
   "garchomp": {
-    "habitat": "mountain"
+    "habitat": "unknown"
   },
-  "rookidee": {
-    "habitat": "urban"
+  "riolu": {
+    "habitat": "unknown"
   },
-  "corvisquire": {
-    "habitat": "urban"
+  "gabite": {
+    "habitat": "unknown"
   },
-  "corviknight": {
-    "habitat": "urban"
+  "munchlax": {
+    "habitat": "unknown"
   },
-  "blipbug": {
-    "habitat": "forest"
+  "lucario": {
+    "habitat": "unknown"
   },
-  "dottler": {
-    "habitat": "forest"
+  "uxie": {
+    "habitat": "unknown"
   },
-  "orbeetle": {
-    "habitat": "grassland"
+  "mamoswine": {
+    "habitat": "unknown"
+  },
+  "rotom": {
+    "habitat": "unknown"
+  },
+  "probopass": {
+    "habitat": "unknown"
+  },
+  "froslass": {
+    "habitat": "unknown"
+  },
+  "gallade": {
+    "habitat": "unknown"
+  },
+  "porygon-z": {
+    "habitat": "unknown"
+  },
+  "dusknoir": {
+    "habitat": "unknown"
+  },
+  "gliscor": {
+    "habitat": "unknown"
+  },
+  "glaceon": {
+    "habitat": "unknown"
+  },
+  "tangrowth": {
+    "habitat": "unknown"
+  },
+  "yanmega": {
+    "habitat": "unknown"
+  },
+  "leafeon": {
+    "habitat": "unknown"
+  },
+  "rhyperior": {
+    "habitat": "unknown"
+  },
+  "magnezone": {
+    "habitat": "unknown"
+  },
+  "togekiss": {
+    "habitat": "unknown"
+  },
+  "magmortar": {
+    "habitat": "unknown"
+  },
+  "lickilicky": {
+    "habitat": "unknown"
+  },
+  "weavile": {
+    "habitat": "unknown"
+  },
+  "electivire": {
+    "habitat": "unknown"
+  },
+  "arceus": {
+    "habitat": "unknown"
+  },
+  "snivy": {
+    "habitat": "unknown"
+  },
+  "pignite": {
+    "habitat": "unknown"
+  },
+  "emboar": {
+    "habitat": "unknown"
+  },
+  "tepig": {
+    "habitat": "unknown"
+  },
+  "servine": {
+    "habitat": "unknown"
+  },
+  "serperior": {
+    "habitat": "unknown"
+  },
+  "victini": {
+    "habitat": "unknown"
+  },
+  "darkrai": {
+    "habitat": "unknown"
+  },
+  "shaymin": {
+    "habitat": "unknown"
+  },
+  "cresselia": {
+    "habitat": "unknown"
+  },
+  "manaphy": {
+    "habitat": "unknown"
+  },
+  "phione": {
+    "habitat": "unknown"
+  },
+  "palkia": {
+    "habitat": "unknown"
+  },
+  "azelf": {
+    "habitat": "unknown"
+  },
+  "dialga": {
+    "habitat": "unknown"
+  },
+  "regigigas": {
+    "habitat": "unknown"
+  },
+  "mesprit": {
+    "habitat": "unknown"
+  },
+  "giratina": {
+    "habitat": "unknown"
+  },
+  "heatran": {
+    "habitat": "unknown"
+  },
+  "panpour": {
+    "habitat": "unknown"
+  },
+  "munna": {
+    "habitat": "unknown"
+  },
+  "pansear": {
+    "habitat": "unknown"
+  },
+  "simipour": {
+    "habitat": "unknown"
+  },
+  "simisear": {
+    "habitat": "unknown"
+  },
+  "pidove": {
+    "habitat": "unknown"
+  },
+  "musharna": {
+    "habitat": "unknown"
+  },
+  "tranquill": {
+    "habitat": "unknown"
+  },
+  "pansage": {
+    "habitat": "unknown"
+  },
+  "simisage": {
+    "habitat": "unknown"
+  },
+  "patrat": {
+    "habitat": "unknown"
+  },
+  "samurott": {
+    "habitat": "unknown"
+  },
+  "liepard": {
+    "habitat": "unknown"
+  },
+  "dewott": {
+    "habitat": "unknown"
+  },
+  "watchog": {
+    "habitat": "unknown"
+  },
+  "oshawott": {
+    "habitat": "unknown"
+  },
+  "purrloin": {
+    "habitat": "unknown"
+  },
+  "herdier": {
+    "habitat": "unknown"
+  },
+  "stoutland": {
+    "habitat": "unknown"
+  },
+  "lillipup": {
+    "habitat": "unknown"
+  },
+  "tympole": {
+    "habitat": "unknown"
+  },
+  "sawk": {
+    "habitat": "unknown"
+  },
+  "seismitoad": {
+    "habitat": "unknown"
+  },
+  "gurdurr": {
+    "habitat": "unknown"
+  },
+  "palpitoad": {
+    "habitat": "unknown"
+  },
+  "sewaddle": {
+    "habitat": "unknown"
+  },
+  "throh": {
+    "habitat": "unknown"
+  },
+  "conkeldurr": {
+    "habitat": "unknown"
+  },
+  "audino": {
+    "habitat": "unknown"
+  },
+  "timburr": {
+    "habitat": "unknown"
+  },
+  "zebstrika": {
+    "habitat": "unknown"
+  },
+  "swoobat": {
+    "habitat": "unknown"
+  },
+  "blitzle": {
+    "habitat": "unknown"
+  },
+  "excadrill": {
+    "habitat": "unknown"
+  },
+  "unfezant": {
+    "habitat": "unknown"
+  },
+  "drilbur": {
+    "habitat": "unknown"
+  },
+  "woobat": {
+    "habitat": "unknown"
+  },
+  "gigalith": {
+    "habitat": "unknown"
+  },
+  "roggenrola": {
+    "habitat": "unknown"
+  },
+  "boldore": {
+    "habitat": "unknown"
+  },
+  "scraggy": {
+    "habitat": "unknown"
+  },
+  "crustle": {
+    "habitat": "unknown"
+  },
+  "scrafty": {
+    "habitat": "unknown"
+  },
+  "darmanitan": {
+    "habitat": "unknown"
+  },
+  "maractus": {
+    "habitat": "unknown"
+  },
+  "darumaka": {
+    "habitat": "unknown"
+  },
+  "dwebble": {
+    "habitat": "unknown"
+  },
+  "krookodile": {
+    "habitat": "unknown"
+  },
+  "krokorok": {
+    "habitat": "unknown"
+  },
+  "sandile": {
+    "habitat": "unknown"
+  },
+  "leavanny": {
+    "habitat": "unknown"
+  },
+  "swadloon": {
+    "habitat": "unknown"
+  },
+  "whirlipede": {
+    "habitat": "unknown"
+  },
+  "venipede": {
+    "habitat": "unknown"
+  },
+  "basculin": {
+    "habitat": "unknown"
+  },
+  "lilligant": {
+    "habitat": "unknown"
+  },
+  "scolipede": {
+    "habitat": "unknown"
+  },
+  "cottonee": {
+    "habitat": "unknown"
+  },
+  "petilil": {
+    "habitat": "unknown"
+  },
+  "whimsicott": {
+    "habitat": "unknown"
+  },
+  "gothitelle": {
+    "habitat": "unknown"
+  },
+  "cinccino": {
+    "habitat": "unknown"
+  },
+  "duosion": {
+    "habitat": "unknown"
+  },
+  "solosis": {
+    "habitat": "unknown"
+  },
+  "gothita": {
+    "habitat": "unknown"
+  },
+  "ducklett": {
+    "habitat": "unknown"
+  },
+  "reuniclus": {
+    "habitat": "unknown"
+  },
+  "gothorita": {
+    "habitat": "unknown"
+  },
+  "zoroark": {
+    "habitat": "unknown"
+  },
+  "minccino": {
+    "habitat": "unknown"
+  },
+  "cofagrigus": {
+    "habitat": "unknown"
+  },
+  "sigilyph": {
+    "habitat": "unknown"
+  },
+  "carracosta": {
+    "habitat": "unknown"
+  },
+  "yamask": {
+    "habitat": "unknown"
+  },
+  "zorua": {
+    "habitat": "unknown"
+  },
+  "archeops": {
+    "habitat": "unknown"
+  },
+  "archen": {
+    "habitat": "unknown"
+  },
+  "trubbish": {
+    "habitat": "unknown"
+  },
+  "tirtouga": {
+    "habitat": "unknown"
+  },
+  "garbodor": {
+    "habitat": "unknown"
+  },
+  "joltik": {
+    "habitat": "unknown"
+  },
+  "ferroseed": {
+    "habitat": "unknown"
+  },
+  "alomomola": {
+    "habitat": "unknown"
+  },
+  "galvantula": {
+    "habitat": "unknown"
+  },
+  "ferrothorn": {
+    "habitat": "unknown"
+  },
+  "klink": {
+    "habitat": "unknown"
+  },
+  "jellicent": {
+    "habitat": "unknown"
+  },
+  "klang": {
+    "habitat": "unknown"
+  },
+  "amoonguss": {
+    "habitat": "unknown"
+  },
+  "frillish": {
+    "habitat": "unknown"
+  },
+  "sawsbuck": {
+    "habitat": "unknown"
+  },
+  "deerling": {
+    "habitat": "unknown"
+  },
+  "karrablast": {
+    "habitat": "unknown"
+  },
+  "escavalier": {
+    "habitat": "unknown"
+  },
+  "foongus": {
+    "habitat": "unknown"
+  },
+  "swanna": {
+    "habitat": "unknown"
+  },
+  "emolga": {
+    "habitat": "unknown"
+  },
+  "vanillite": {
+    "habitat": "unknown"
+  },
+  "vanillish": {
+    "habitat": "unknown"
+  },
+  "vanilluxe": {
+    "habitat": "unknown"
+  },
+  "shelmet": {
+    "habitat": "unknown"
+  },
+  "mienshao": {
+    "habitat": "unknown"
+  },
+  "accelgor": {
+    "habitat": "unknown"
+  },
+  "cubchoo": {
+    "habitat": "unknown"
+  },
+  "stunfisk": {
+    "habitat": "unknown"
+  },
+  "beartic": {
+    "habitat": "unknown"
+  },
+  "cryogonal": {
+    "habitat": "unknown"
+  },
+  "haxorus": {
+    "habitat": "unknown"
+  },
+  "mienfoo": {
+    "habitat": "unknown"
+  },
+  "fraxure": {
+    "habitat": "unknown"
+  },
+  "eelektross": {
+    "habitat": "unknown"
+  },
+  "lampent": {
+    "habitat": "unknown"
+  },
+  "litwick": {
+    "habitat": "unknown"
+  },
+  "eelektrik": {
+    "habitat": "unknown"
+  },
+  "tynamo": {
+    "habitat": "unknown"
+  },
+  "chandelure": {
+    "habitat": "unknown"
+  },
+  "axew": {
+    "habitat": "unknown"
+  },
+  "klinklang": {
+    "habitat": "unknown"
+  },
+  "beheeyem": {
+    "habitat": "unknown"
+  },
+  "elgyem": {
+    "habitat": "unknown"
+  },
+  "durant": {
+    "habitat": "unknown"
+  },
+  "cobalion": {
+    "habitat": "unknown"
+  },
+  "terrakion": {
+    "habitat": "unknown"
+  },
+  "virizion": {
+    "habitat": "unknown"
+  },
+  "hydreigon": {
+    "habitat": "unknown"
+  },
+  "larvesta": {
+    "habitat": "unknown"
+  },
+  "zweilous": {
+    "habitat": "unknown"
+  },
+  "volcarona": {
+    "habitat": "unknown"
+  },
+  "deino": {
+    "habitat": "unknown"
+  },
+  "heatmor": {
+    "habitat": "unknown"
+  },
+  "pawniard": {
+    "habitat": "unknown"
+  },
+  "vullaby": {
+    "habitat": "unknown"
+  },
+  "golett": {
+    "habitat": "unknown"
+  },
+  "bisharp": {
+    "habitat": "unknown"
+  },
+  "bouffalant": {
+    "habitat": "unknown"
+  },
+  "golurk": {
+    "habitat": "unknown"
+  },
+  "rufflet": {
+    "habitat": "unknown"
+  },
+  "mandibuzz": {
+    "habitat": "unknown"
+  },
+  "druddigon": {
+    "habitat": "unknown"
+  },
+  "braviary": {
+    "habitat": "unknown"
+  },
+  "delphox": {
+    "habitat": "unknown"
+  },
+  "greninja": {
+    "habitat": "unknown"
+  },
+  "frogadier": {
+    "habitat": "unknown"
+  },
+  "braixen": {
+    "habitat": "unknown"
+  },
+  "fennekin": {
+    "habitat": "unknown"
+  },
+  "froakie": {
+    "habitat": "unknown"
+  },
+  "chesnaught": {
+    "habitat": "unknown"
+  },
+  "bunnelby": {
+    "habitat": "unknown"
+  },
+  "diggersby": {
+    "habitat": "unknown"
+  },
+  "quilladin": {
+    "habitat": "unknown"
+  },
+  "tornadus": {
+    "habitat": "unknown"
+  },
+  "chespin": {
+    "habitat": "unknown"
+  },
+  "meloetta": {
+    "habitat": "unknown"
+  },
+  "landorus": {
+    "habitat": "unknown"
+  },
+  "genesect": {
+    "habitat": "unknown"
+  },
+  "reshiram": {
+    "habitat": "unknown"
+  },
+  "zekrom": {
+    "habitat": "unknown"
+  },
+  "keldeo": {
+    "habitat": "unknown"
+  },
+  "kyurem": {
+    "habitat": "unknown"
+  },
+  "thundurus": {
+    "habitat": "unknown"
+  },
+  "skiddo": {
+    "habitat": "unknown"
+  },
+  "gogoat": {
+    "habitat": "unknown"
+  },
+  "meowstic": {
+    "habitat": "unknown"
+  },
+  "honedge": {
+    "habitat": "unknown"
+  },
+  "furfrou": {
+    "habitat": "unknown"
+  },
+  "espurr": {
+    "habitat": "unknown"
+  },
+  "doublade": {
+    "habitat": "unknown"
+  },
+  "pangoro": {
+    "habitat": "unknown"
+  },
+  "florges": {
+    "habitat": "unknown"
+  },
+  "pancham": {
+    "habitat": "unknown"
+  },
+  "vivillon": {
+    "habitat": "unknown"
+  },
+  "scatterbug": {
+    "habitat": "unknown"
+  },
+  "spewpa": {
+    "habitat": "unknown"
+  },
+  "pyroar": {
+    "habitat": "unknown"
+  },
+  "floette": {
+    "habitat": "unknown"
+  },
+  "flabebe": {
+    "habitat": "unknown"
+  },
+  "litleo": {
+    "habitat": "unknown"
+  },
+  "fletchinder": {
+    "habitat": "unknown"
+  },
+  "talonflame": {
+    "habitat": "unknown"
+  },
+  "fletchling": {
+    "habitat": "unknown"
+  },
+  "helioptile": {
+    "habitat": "unknown"
+  },
+  "tyrunt": {
+    "habitat": "unknown"
+  },
+  "clawitzer": {
+    "habitat": "unknown"
+  },
+  "heliolisk": {
+    "habitat": "unknown"
+  },
+  "amaura": {
+    "habitat": "unknown"
+  },
+  "tyrantrum": {
+    "habitat": "unknown"
+  },
+  "aurorus": {
+    "habitat": "unknown"
+  },
+  "sylveon": {
+    "habitat": "unknown"
+  },
+  "dragalge": {
+    "habitat": "unknown"
+  },
+  "clauncher": {
+    "habitat": "unknown"
+  },
+  "skrelp": {
+    "habitat": "unknown"
+  },
+  "binacle": {
+    "habitat": "unknown"
+  },
+  "inkay": {
+    "habitat": "unknown"
+  },
+  "barbaracle": {
+    "habitat": "unknown"
+  },
+  "aromatisse": {
+    "habitat": "unknown"
+  },
+  "slurpuff": {
+    "habitat": "unknown"
+  },
+  "aegislash": {
+    "habitat": "unknown"
+  },
+  "malamar": {
+    "habitat": "unknown"
+  },
+  "swirlix": {
+    "habitat": "unknown"
+  },
+  "spritzee": {
+    "habitat": "unknown"
+  },
+  "noivern": {
+    "habitat": "unknown"
+  },
+  "noibat": {
+    "habitat": "unknown"
+  },
+  "xerneas": {
+    "habitat": "unknown"
+  },
+  "hoopa": {
+    "habitat": "unknown"
+  },
+  "yveltal": {
+    "habitat": "unknown"
+  },
+  "avalugg": {
+    "habitat": "unknown"
+  },
+  "zygarde": {
+    "habitat": "unknown"
+  },
+  "diancie": {
+    "habitat": "unknown"
+  },
+  "bergmite": {
+    "habitat": "unknown"
+  },
+  "pumpkaboo": {
+    "habitat": "unknown"
+  },
+  "phantump": {
+    "habitat": "unknown"
+  },
+  "dedenne": {
+    "habitat": "unknown"
+  },
+  "klefki": {
+    "habitat": "unknown"
+  },
+  "hawlucha": {
+    "habitat": "unknown"
+  },
+  "trevenant": {
+    "habitat": "unknown"
+  },
+  "goodra": {
+    "habitat": "unknown"
+  },
+  "gourgeist": {
+    "habitat": "unknown"
+  },
+  "carbink": {
+    "habitat": "unknown"
+  },
+  "goomy": {
+    "habitat": "unknown"
+  },
+  "sliggoo": {
+    "habitat": "unknown"
+  },
+  "gumshoos": {
+    "habitat": "unknown"
+  },
+  "toucannon": {
+    "habitat": "unknown"
+  },
+  "vikavolt": {
+    "habitat": "unknown"
+  },
+  "yungoos": {
+    "habitat": "unknown"
+  },
+  "trumbeak": {
+    "habitat": "unknown"
+  },
+  "charjabug": {
+    "habitat": "unknown"
+  },
+  "crabominable": {
+    "habitat": "unknown"
+  },
+  "crabrawler": {
+    "habitat": "unknown"
+  },
+  "grubbin": {
+    "habitat": "unknown"
+  },
+  "pikipek": {
+    "habitat": "unknown"
+  },
+  "volcanion": {
+    "habitat": "unknown"
+  },
+  "primarina": {
+    "habitat": "unknown"
+  },
+  "torracat": {
+    "habitat": "unknown"
+  },
+  "popplio": {
+    "habitat": "unknown"
+  },
+  "dartrix": {
+    "habitat": "unknown"
+  },
+  "incineroar": {
+    "habitat": "unknown"
+  },
+  "rowlet": {
+    "habitat": "unknown"
+  },
+  "decidueye": {
+    "habitat": "unknown"
+  },
+  "litten": {
+    "habitat": "unknown"
+  },
+  "brionne": {
+    "habitat": "unknown"
+  },
+  "lurantis": {
+    "habitat": "unknown"
+  },
+  "fomantis": {
+    "habitat": "unknown"
+  },
+  "morelull": {
+    "habitat": "unknown"
+  },
+  "bewear": {
+    "habitat": "unknown"
+  },
+  "araquanid": {
+    "habitat": "unknown"
+  },
+  "salandit": {
+    "habitat": "unknown"
+  },
+  "salazzle": {
+    "habitat": "unknown"
+  },
+  "stufful": {
+    "habitat": "unknown"
+  },
+  "shiinotic": {
+    "habitat": "unknown"
+  },
+  "dewpider": {
+    "habitat": "unknown"
+  },
+  "mudbray": {
+    "habitat": "unknown"
+  },
+  "toxapex": {
+    "habitat": "unknown"
+  },
+  "oricorio": {
+    "habitat": "unknown"
+  },
+  "mareanie": {
+    "habitat": "unknown"
+  },
+  "cutiefly": {
+    "habitat": "unknown"
+  },
+  "mudsdale": {
+    "habitat": "unknown"
+  },
+  "lycanroc": {
+    "habitat": "unknown"
+  },
+  "ribombee": {
+    "habitat": "unknown"
+  },
+  "wishiwashi": {
+    "habitat": "unknown"
+  },
+  "rockruff": {
+    "habitat": "unknown"
+  },
+  "minior": {
+    "habitat": "unknown"
+  },
+  "togedemaru": {
+    "habitat": "unknown"
+  },
+  "silvally": {
+    "habitat": "unknown"
+  },
+  "komala": {
+    "habitat": "unknown"
+  },
+  "bruxish": {
+    "habitat": "unknown"
+  },
+  "mimikyu": {
+    "habitat": "unknown"
+  },
+  "turtonator": {
+    "habitat": "unknown"
+  },
+  "drampa": {
+    "habitat": "unknown"
+  },
+  "type-null": {
+    "habitat": "unknown"
+  },
+  "pyukumuku": {
+    "habitat": "unknown"
+  },
+  "palossand": {
+    "habitat": "unknown"
+  },
+  "oranguru": {
+    "habitat": "unknown"
+  },
+  "sandygast": {
+    "habitat": "unknown"
+  },
+  "wimpod": {
+    "habitat": "unknown"
+  },
+  "passimian": {
+    "habitat": "unknown"
+  },
+  "tsareena": {
+    "habitat": "unknown"
+  },
+  "steenee": {
+    "habitat": "unknown"
+  },
+  "bounsweet": {
+    "habitat": "unknown"
+  },
+  "comfey": {
+    "habitat": "unknown"
+  },
+  "golisopod": {
+    "habitat": "unknown"
+  },
+  "nihilego": {
+    "habitat": "unknown"
+  },
+  "pheromosa": {
+    "habitat": "unknown"
+  },
+  "xurkitree": {
+    "habitat": "unknown"
+  },
+  "kartana": {
+    "habitat": "unknown"
+  },
+  "buzzwole": {
+    "habitat": "unknown"
+  },
+  "celesteela": {
+    "habitat": "unknown"
+  },
+  "guzzlord": {
+    "habitat": "unknown"
+  },
+  "necrozma": {
+    "habitat": "unknown"
+  },
+  "lunala": {
+    "habitat": "unknown"
+  },
+  "tapu-fini": {
+    "habitat": "unknown"
+  },
+  "tapu-bulu": {
+    "habitat": "unknown"
+  },
+  "cosmoem": {
+    "habitat": "unknown"
+  },
+  "tapu-lele": {
+    "habitat": "unknown"
+  },
+  "tapu-koko": {
+    "habitat": "unknown"
+  },
+  "solgaleo": {
+    "habitat": "unknown"
+  },
+  "cosmog": {
+    "habitat": "unknown"
+  },
+  "kommo-o": {
+    "habitat": "unknown"
+  },
+  "jangmo-o": {
+    "habitat": "unknown"
+  },
+  "dhelmise": {
+    "habitat": "unknown"
+  },
+  "hakamo-o": {
+    "habitat": "unknown"
+  },
+  "scorbunny": {
+    "habitat": "unknown"
   },
   "skwovet": {
-    "habitat": "forest"
+    "habitat": "unknown"
+  },
+  "raboot": {
+    "habitat": "unknown"
+  },
+  "cinderace": {
+    "habitat": "unknown"
+  },
+  "drizzile": {
+    "habitat": "unknown"
+  },
+  "inteleon": {
+    "habitat": "unknown"
   },
   "greedent": {
-    "habitat": "forest"
+    "habitat": "unknown"
+  },
+  "sobble": {
+    "habitat": "unknown"
+  },
+  "rillaboom": {
+    "habitat": "unknown"
+  },
+  "thwackey": {
+    "habitat": "unknown"
+  },
+  "grookey": {
+    "habitat": "unknown"
+  },
+  "stakataka": {
+    "habitat": "unknown"
+  },
+  "naganadel": {
+    "habitat": "unknown"
+  },
+  "melmetal": {
+    "habitat": "unknown"
+  },
+  "poipole": {
+    "habitat": "unknown"
+  },
+  "blacephalon": {
+    "habitat": "unknown"
+  },
+  "zeraora": {
+    "habitat": "unknown"
+  },
+  "magearna": {
+    "habitat": "unknown"
+  },
+  "marshadow": {
+    "habitat": "unknown"
+  },
+  "meltan": {
+    "habitat": "unknown"
+  },
+  "drednaw": {
+    "habitat": "unknown"
+  },
+  "yamper": {
+    "habitat": "unknown"
+  },
+  "coalossal": {
+    "habitat": "unknown"
+  },
+  "chewtle": {
+    "habitat": "unknown"
+  },
+  "boltund": {
+    "habitat": "unknown"
+  },
+  "applin": {
+    "habitat": "unknown"
+  },
+  "rolycoly": {
+    "habitat": "unknown"
+  },
+  "dubwool": {
+    "habitat": "unknown"
+  },
+  "carkol": {
+    "habitat": "unknown"
   },
   "nickit": {
-    "habitat": "urban"
+    "habitat": "unknown"
+  },
+  "eldegoss": {
+    "habitat": "unknown"
+  },
+  "blipbug": {
+    "habitat": "unknown"
+  },
+  "dottler": {
+    "habitat": "unknown"
+  },
+  "corvisquire": {
+    "habitat": "unknown"
   },
   "thievul": {
-    "habitat": "urban"
+    "habitat": "unknown"
   },
-  "gossamer": {
-    "habitat": "grassland"
+  "gossifleur": {
+    "habitat": "unknown"
   },
-  "gossamer-hisui": {
-    "habitat": "grassland"
+  "orbeetle": {
+    "habitat": "unknown"
   },
-  "salmon-idle": {
-    "habitat": "sea"
+  "rookidee": {
+    "habitat": "unknown"
   },
-  "salmon-running": {
-    "habitat": "sea"
+  "wooloo": {
+    "habitat": "unknown"
   },
-  "salmon-basin": {
-    "habitat": "sea"
+  "corviknight": {
+    "habitat": "unknown"
   },
-  "salmon-rapid": {
-    "habitat": "sea"
+  "sinistea": {
+    "habitat": "unknown"
   },
-  "salmon-pit": {
-    "habitat": "sea"
+  "clobbopus": {
+    "habitat": "unknown"
   },
-  "salmon-aqua": {
-    "habitat": "sea"
+  "hatenna": {
+    "habitat": "unknown"
   },
-  "salmon-dynamax": {
-    "habitat": "sea"
+  "morgrem": {
+    "habitat": "unknown"
   },
-  "salmon-gmax": {
-    "habitat": "sea"
+  "hatterene": {
+    "habitat": "unknown"
   },
-  "salmon-mega": {
-    "habitat": "sea"
+  "polteageist": {
+    "habitat": "unknown"
   },
-  "salmon-primal": {
-    "habitat": "sea"
+  "hattrem": {
+    "habitat": "unknown"
   },
-  "salmon-origin": {
-    "habitat": "sea"
+  "impidimp": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax": {
-    "habitat": "sea"
+  "grapploct": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus": {
-    "habitat": "sea"
+  "cramorant": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-infrared": {
-    "habitat": "sea"
+  "sizzlipede": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax": {
-    "habitat": "sea"
+  "silicobra": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax-infrared": {
-    "habitat": "sea"
+  "arrokuda": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax-eternamax": {
-    "habitat": "sea"
+  "toxtricity": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax-eternamax-infrared": {
-    "habitat": "sea"
+  "barraskewda": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax": {
-    "habitat": "sea"
+  "sandaconda": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-infrared": {
-    "habitat": "sea"
+  "centiskorch": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax": {
-    "habitat": "sea"
+  "appletun": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-infrared": {
-    "habitat": "sea"
+  "flapple": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-eternamax": {
-    "habitat": "sea"
+  "toxel": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-eternamax-infrared": {
-    "habitat": "sea"
+  "morpeko": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax": {
-    "habitat": "sea"
+  "eiscue": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax-infrared": {
-    "habitat": "sea"
+  "indeedee": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax": {
-    "habitat": "sea"
+  "cufant": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax-infrared": {
-    "habitat": "sea"
+  "dracozolt": {
+    "habitat": "unknown"
   },
-  "salmon-eternamax-eternatus-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax-eternamax": {
-    "habitat": "sea"
+  "frosmoth": {
+    "habitat": "unknown"
+  },
+  "stonjourner": {
+    "habitat": "unknown"
+  },
+  "copperajah": {
+    "habitat": "unknown"
+  },
+  "snom": {
+    "habitat": "unknown"
+  },
+  "pincurchin": {
+    "habitat": "unknown"
+  },
+  "perrserker": {
+    "habitat": "unknown"
+  },
+  "runerigus": {
+    "habitat": "unknown"
+  },
+  "cursola": {
+    "habitat": "unknown"
+  },
+  "alcremie": {
+    "habitat": "unknown"
+  },
+  "obstagoon": {
+    "habitat": "unknown"
+  },
+  "milcery": {
+    "habitat": "unknown"
+  },
+  "mr-rime": {
+    "habitat": "unknown"
+  },
+  "falinks": {
+    "habitat": "unknown"
+  },
+  "grimmsnarl": {
+    "habitat": "unknown"
+  },
+  "sirfetchd": {
+    "habitat": "unknown"
+  },
+  "zarude": {
+    "habitat": "unknown"
+  },
+  "glastrier": {
+    "habitat": "unknown"
+  },
+  "regidrago": {
+    "habitat": "unknown"
+  },
+  "kleavor": {
+    "habitat": "unknown"
+  },
+  "calyrex": {
+    "habitat": "unknown"
+  },
+  "spectrier": {
+    "habitat": "unknown"
+  },
+  "wyrdeer": {
+    "habitat": "unknown"
+  },
+  "regieleki": {
+    "habitat": "unknown"
+  },
+  "urshifu": {
+    "habitat": "unknown"
+  },
+  "kubfu": {
+    "habitat": "unknown"
+  },
+  "zacian": {
+    "habitat": "unknown"
+  },
+  "eternatus": {
+    "habitat": "unknown"
+  },
+  "dreepy": {
+    "habitat": "unknown"
+  },
+  "zamazenta": {
+    "habitat": "unknown"
+  },
+  "duraludon": {
+    "habitat": "unknown"
+  },
+  "dracovish": {
+    "habitat": "unknown"
+  },
+  "arctozolt": {
+    "habitat": "unknown"
+  },
+  "arctovish": {
+    "habitat": "unknown"
+  },
+  "dragapult": {
+    "habitat": "unknown"
+  },
+  "drakloak": {
+    "habitat": "unknown"
+  },
+  "oinkologne": {
+    "habitat": "unknown"
+  },
+  "quaquaval": {
+    "habitat": "unknown"
+  },
+  "tarountula": {
+    "habitat": "unknown"
+  },
+  "lechonk": {
+    "habitat": "unknown"
+  },
+  "quaxly": {
+    "habitat": "unknown"
+  },
+  "quaxwell": {
+    "habitat": "unknown"
+  },
+  "spidops": {
+    "habitat": "unknown"
+  },
+  "nymble": {
+    "habitat": "unknown"
+  },
+  "sneasler": {
+    "habitat": "unknown"
+  },
+  "overqwil": {
+    "habitat": "unknown"
+  },
+  "skeledirge": {
+    "habitat": "unknown"
+  },
+  "lokix": {
+    "habitat": "unknown"
+  },
+  "basculegion": {
+    "habitat": "unknown"
+  },
+  "crocalor": {
+    "habitat": "unknown"
+  },
+  "meowscarada": {
+    "habitat": "unknown"
+  },
+  "floragato": {
+    "habitat": "unknown"
+  },
+  "fuecoco": {
+    "habitat": "unknown"
+  },
+  "ursaluna": {
+    "habitat": "unknown"
+  },
+  "sprigatito": {
+    "habitat": "unknown"
+  },
+  "enamorus": {
+    "habitat": "unknown"
+  },
+  "tadbulb": {
+    "habitat": "unknown"
+  },
+  "naclstack": {
+    "habitat": "unknown"
+  },
+  "garganacl": {
+    "habitat": "unknown"
+  },
+  "armarouge": {
+    "habitat": "unknown"
+  },
+  "bellibolt": {
+    "habitat": "unknown"
+  },
+  "wattrel": {
+    "habitat": "unknown"
+  },
+  "charcadet": {
+    "habitat": "unknown"
+  },
+  "ceruledge": {
+    "habitat": "unknown"
+  },
+  "dolliv": {
+    "habitat": "unknown"
+  },
+  "arboliva": {
+    "habitat": "unknown"
+  },
+  "dachsbun": {
+    "habitat": "unknown"
+  },
+  "tandemaus": {
+    "habitat": "unknown"
+  },
+  "nacli": {
+    "habitat": "unknown"
+  },
+  "squawkabilly": {
+    "habitat": "unknown"
+  },
+  "pawmo": {
+    "habitat": "unknown"
+  },
+  "maushold": {
+    "habitat": "unknown"
+  },
+  "fidough": {
+    "habitat": "unknown"
+  },
+  "smoliv": {
+    "habitat": "unknown"
+  },
+  "pawmot": {
+    "habitat": "unknown"
+  },
+  "pawmi": {
+    "habitat": "unknown"
+  },
+  "flittle": {
+    "habitat": "unknown"
+  },
+  "scovillain": {
+    "habitat": "unknown"
+  },
+  "rellor": {
+    "habitat": "unknown"
+  },
+  "tinkatuff": {
+    "habitat": "unknown"
+  },
+  "wiglett": {
+    "habitat": "unknown"
+  },
+  "rabsca": {
+    "habitat": "unknown"
+  },
+  "tinkaton": {
+    "habitat": "unknown"
+  },
+  "tinkatink": {
+    "habitat": "unknown"
+  },
+  "espathra": {
+    "habitat": "unknown"
+  },
+  "klawf": {
+    "habitat": "unknown"
+  },
+  "brambleghast": {
+    "habitat": "unknown"
+  },
+  "toedscruel": {
+    "habitat": "unknown"
+  },
+  "toedscool": {
+    "habitat": "unknown"
+  },
+  "shroodle": {
+    "habitat": "unknown"
+  },
+  "grafaiai": {
+    "habitat": "unknown"
+  },
+  "capsakid": {
+    "habitat": "unknown"
+  },
+  "bramblin": {
+    "habitat": "unknown"
+  },
+  "kilowattrel": {
+    "habitat": "unknown"
+  },
+  "mabosstiff": {
+    "habitat": "unknown"
+  },
+  "maschiff": {
+    "habitat": "unknown"
+  },
+  "veluza": {
+    "habitat": "unknown"
+  },
+  "cetoddle": {
+    "habitat": "unknown"
+  },
+  "clodsire": {
+    "habitat": "unknown"
+  },
+  "cetitan": {
+    "habitat": "unknown"
+  },
+  "flamigo": {
+    "habitat": "unknown"
+  },
+  "houndstone": {
+    "habitat": "unknown"
+  },
+  "tatsugiri": {
+    "habitat": "unknown"
+  },
+  "dondozo": {
+    "habitat": "unknown"
+  },
+  "annihilape": {
+    "habitat": "unknown"
+  },
+  "varoom": {
+    "habitat": "unknown"
+  },
+  "orthworm": {
+    "habitat": "unknown"
+  },
+  "finizen": {
+    "habitat": "unknown"
+  },
+  "wugtrio": {
+    "habitat": "unknown"
+  },
+  "bombirdier": {
+    "habitat": "unknown"
+  },
+  "greavard": {
+    "habitat": "unknown"
+  },
+  "glimmora": {
+    "habitat": "unknown"
+  },
+  "glimmet": {
+    "habitat": "unknown"
+  },
+  "cyclizar": {
+    "habitat": "unknown"
+  },
+  "palafin": {
+    "habitat": "unknown"
+  },
+  "revavroom": {
+    "habitat": "unknown"
+  },
+  "iron-hands": {
+    "habitat": "unknown"
+  },
+  "iron-jugulis": {
+    "habitat": "unknown"
+  },
+  "iron-thorns": {
+    "habitat": "unknown"
+  },
+  "iron-moth": {
+    "habitat": "unknown"
+  },
+  "gholdengo": {
+    "habitat": "unknown"
+  },
+  "baxcalibur": {
+    "habitat": "unknown"
+  },
+  "gimmighoul": {
+    "habitat": "unknown"
+  },
+  "arctibax": {
+    "habitat": "unknown"
+  },
+  "frigibax": {
+    "habitat": "unknown"
+  },
+  "great-tusk": {
+    "habitat": "unknown"
+  },
+  "iron-bundle": {
+    "habitat": "unknown"
+  },
+  "brute-bonnet": {
+    "habitat": "unknown"
+  },
+  "scream-tail": {
+    "habitat": "unknown"
+  },
+  "iron-treads": {
+    "habitat": "unknown"
+  },
+  "flutter-mane": {
+    "habitat": "unknown"
+  },
+  "sandy-shocks": {
+    "habitat": "unknown"
+  },
+  "slither-wing": {
+    "habitat": "unknown"
+  },
+  "farigiraf": {
+    "habitat": "unknown"
+  },
+  "kingambit": {
+    "habitat": "unknown"
+  },
+  "dudunsparce": {
+    "habitat": "unknown"
+  },
+  "munkidori": {
+    "habitat": "unknown"
+  },
+  "okidogi": {
+    "habitat": "unknown"
+  },
+  "fezandipiti": {
+    "habitat": "unknown"
+  },
+  "sinistcha": {
+    "habitat": "unknown"
+  },
+  "archaludon": {
+    "habitat": "unknown"
+  },
+  "hydrapple": {
+    "habitat": "unknown"
+  },
+  "poltchageist": {
+    "habitat": "unknown"
+  },
+  "gouging-fire": {
+    "habitat": "unknown"
+  },
+  "ogerpon": {
+    "habitat": "unknown"
+  },
+  "koraidon": {
+    "habitat": "unknown"
+  },
+  "wo-chien": {
+    "habitat": "unknown"
+  },
+  "iron-leaves": {
+    "habitat": "unknown"
+  },
+  "miraidon": {
+    "habitat": "unknown"
+  },
+  "walking-wake": {
+    "habitat": "unknown"
+  },
+  "dipplin": {
+    "habitat": "unknown"
+  },
+  "chi-yu": {
+    "habitat": "unknown"
+  },
+  "iron-valiant": {
+    "habitat": "unknown"
+  },
+  "roaring-moon": {
+    "habitat": "unknown"
+  },
+  "ting-lu": {
+    "habitat": "unknown"
+  },
+  "chien-pao": {
+    "habitat": "unknown"
+  },
+  "iron-boulder": {
+    "habitat": "unknown"
+  },
+  "terapagos": {
+    "habitat": "unknown"
+  },
+  "pecharunt": {
+    "habitat": "unknown"
+  },
+  "iron-crown": {
+    "habitat": "unknown"
+  },
+  "raging-bolt": {
+    "habitat": "unknown"
   }
 }
