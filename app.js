@@ -66,8 +66,6 @@ const els = {
   legendaryFilter: document.getElementById("legendaryFilter"),
   includeMythical: document.getElementById("includeMythical"),
   excludeForms: document.getElementById("excludeForms"),
-  seed: document.getElementById("seed"),
-  randomSeedToggle: document.getElementById("randomSeedToggle"),
   generateBtn: document.getElementById("generateBtn"),
   copyBtn: document.getElementById("copyBtn"),
   resetBtn: document.getElementById("resetBtn"),
@@ -76,6 +74,8 @@ const els = {
   results: document.getElementById("results"),
   cardTemplate: document.getElementById("cardTemplate"),
   filterToggle: document.getElementById("filterToggle"),
+  filterOverlay: document.getElementById("filterOverlay"),
+  closeOverlay: document.getElementById("closeOverlay"),
   controlsPanel: document.getElementById("controlsPanel")
 };
 
@@ -401,13 +401,7 @@ async function generateEncounter() {
   const requestedCount = Number.parseInt(els.count.value, 10);
   const count = Number.isNaN(requestedCount) ? 1 : Math.min(Math.max(requestedCount, 1), 12);
 
-  const randomMode = els.randomSeedToggle.checked;
-  let seedText = els.seed.value.trim();
-  if (randomMode || !seedText) {
-    seedText = `${Date.now()}-${Math.floor(Math.random() * 1_000_000)}`;
-  }
-  els.seed.value = seedText;
-
+  const seedText = `${Date.now()}-${Math.floor(Math.random() * 1_000_000)}`;
   const filters = {
     nameContains: els.nameFilter.value.trim().toLowerCase(),
     type: els.typeFilter.value,
@@ -474,11 +468,14 @@ async function generateEncounter() {
 
   if (found.length < count) {
     setStatus(
-      `Found ${found.length}/${count}. Filters may be too strict or require deeper scan. Current seed: ${seedText}`
+      `Found ${found.length}/${count}. Filters may be too strict or require deeper scan.`
     );
   } else {
-    setStatus(`Generated ${found.length} Pokemon. Seed: ${seedText}`);
+    setStatus(`Generated ${found.length} Pokemon.`);
   }
+
+  // On mobile, close the filter overlay after generating
+  closeFilterOverlay();
 }
 
 function copyResults() {
@@ -515,8 +512,6 @@ function resetFilters() {
   els.rankOrLower.checked = true;
   els.includeMythical.checked = false;
   els.excludeForms.checked = true;
-  els.randomSeedToggle.checked = true;
-  els.seed.value = "";
   state.lastResult = [];
   state.lastPoolSize = 0;
   els.resultMeta.textContent = "";
@@ -531,36 +526,31 @@ async function init() {
   els.copyBtn.addEventListener("click", copyResults);
   els.resetBtn.addEventListener("click", resetFilters);
 
-  // Mobile filter drawer toggle
-  if (els.filterToggle && els.controlsPanel) {
-    els.filterToggle.addEventListener("click", () => {
-      const expanded = els.controlsPanel.classList.toggle("expanded");
-      if (expanded) {
-        els.filterToggle.querySelector(".filter-toggle-icon").textContent = "▲";
-        els.filterToggle.querySelector("span").textContent = " Hide filters";
-      } else {
-        els.filterToggle.querySelector(".filter-toggle-icon").textContent = "▼";
-        els.filterToggle.querySelector("span").textContent = " Show filters";
-      }
-      // Move focus to results section on mobile for quick access
-      if (!expanded) {
-        els.results.scrollIntoView({ behavior: "smooth" });
+  // Filter overlay toggle (mobile modal + desktop static button)
+  if (els.filterToggle && els.filterOverlay) {
+    els.filterToggle.addEventListener("click", toggleFilterOverlay);
+    els.filterToggle.classList.add("collapsed");
+
+    // Close overlay when clicking the X button
+    if (els.closeOverlay) {
+      els.closeOverlay.addEventListener("click", closeFilterOverlay);
+    }
+
+    // Close overlay when clicking outside the controls panel
+    els.filterOverlay.addEventListener("click", (e) => {
+      if (e.target === els.filterOverlay) {
+        closeFilterOverlay();
       }
     });
+  }
 
-    // Auto-expand filters if a filter was just changed on mobile
-    // (optional UX improvement — user is actively configuring)
+  // Auto-open filters when a user taps a filter input on mobile
+  if (els.controlsPanel) {
     const filterInputs = els.controlsPanel.querySelectorAll("input, select");
     filterInputs.forEach((input) => {
       input.addEventListener("focus", () => {
-        if (!els.controlsPanel.classList.contains("expanded")) {
-          els.controlsPanel.classList.add("expanded");
-          if (els.filterToggle) {
-            const icon = els.filterToggle.querySelector(".filter-toggle-icon");
-            const label = els.filterToggle.querySelector("span");
-            if (icon) icon.textContent = "▲";
-            if (label) label.textContent = " Hide filters";
-          }
+        if (els.filterOverlay && !els.filterOverlay.classList.contains("active")) {
+          openFilterOverlay();
         }
       });
     });
@@ -571,6 +561,27 @@ async function init() {
   } catch {
     setStatus("Failed to load Pokemon list. Check internet access and retry.");
   }
+}
+
+function toggleFilterOverlay() {
+  if (!els.filterOverlay) return;
+  const isActive = els.filterOverlay.classList.toggle("active");
+  els.filterToggle.classList.toggle("active", isActive);
+  els.filterToggle.classList.toggle("collapsed", !isActive);
+}
+
+function openFilterOverlay() {
+  if (!els.filterOverlay) return;
+  els.filterOverlay.classList.add("active");
+  els.filterToggle.classList.add("active");
+  els.filterToggle.classList.remove("collapsed");
+}
+
+function closeFilterOverlay() {
+  if (!els.filterOverlay) return;
+  els.filterOverlay.classList.remove("active");
+  els.filterToggle.classList.remove("active");
+  els.filterToggle.classList.add("collapsed");
 }
 
 init();

@@ -143,17 +143,6 @@ button:hover {
   font-size: 0.88rem;
 }
 
-.seed-row {
-  display: grid;
-  gap: 8px;
-  grid-template-columns: 1fr;
-  align-items: end;
-}
-
-.seed-toggle-row {
-  align-self: center;
-}
-
 .actions {
   margin-top: 12px;
   display: grid;
@@ -245,19 +234,24 @@ button:hover {
   font-weight: 800;
 }
 
-/* Filter toggle button — only visible on mobile */
+/* Filter toggle button — static positioned, hidden on desktop */
 .filter-toggle {
   display: none;
-  width: 100%;
-  padding: 12px 16px;
-  font-size: 1rem;
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 998;
+  padding: 14px 20px;
+  font-size: 1.1rem;
   background: var(--teal);
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
   font-weight: 800;
-  transition: transform 120ms ease, filter 120ms ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 120ms ease, filter 120ms ease, bottom 300ms ease;
 }
 
 .filter-toggle:hover {
@@ -270,17 +264,88 @@ button:hover {
   transition: transform 200ms ease;
 }
 
-/* Controls header wrapper for mobile layout */
+.filter-toggle.collapsed .filter-toggle-icon {
+  transform: rotate(0deg);
+}
+
+.filter-toggle.active .filter-toggle-icon {
+  transform: rotate(-180deg);
+}
+
 .controls-header {
   display: flex;
   flex-direction: column;
 }
 
-@media (min-width: 680px) {
-  .seed-row {
-    grid-template-columns: 1fr auto;
+.close-overlay {
+  display: none;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+}
+
+/* Mobile-only elements hidden by default, shown in mobile media query */
+.mobile-only {
+  display: none;
+}
+
+/* Modal overlay for mobile filter drawer — hidden on desktop, fixed on mobile */
+.filter-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(34, 33, 29, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  align-items: flex-start;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.filter-overlay.active {
+  display: flex;
+}
+
+/* On desktop (>=941px), overlay is not used — controls panel is inline */
+@media (min-width: 941px) {
+  .filter-overlay {
+    display: block !important;
+    position: static;
+    background: transparent;
+    backdrop-filter: none;
+    z-index: auto;
+    padding: 0;
+    overflow: visible;
   }
 
+  .filter-overlay .panel {
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+  }
+
+  .controls-header {
+    position: relative;
+  }
+
+  /* Subtitle visible on desktop */
+  .subtitle {
+    display: block;
+    margin: 6px 0 16px;
+    opacity: 0.8;
+  }
+}
+
+@media (min-width: 680px) {
   .actions {
     grid-template-columns: 1fr 1fr;
   }
@@ -295,9 +360,9 @@ button:hover {
     grid-template-columns: 420px 1fr;
   }
 
-  /* On desktop, cap the controls height so vertical scrollbar appears when needed */
-  .controls {
-    max-height: calc(100vh - 40px);
+  /* Toggle button hidden on desktop */
+  .filter-toggle {
+    display: none;
   }
 }
 
@@ -314,63 +379,50 @@ button:hover {
     gap: 12px;
   }
 
-  /* On mobile, filters are a collapsible drawer */
-  .controls {
-    max-height: 60px;
-    padding: 10px;
-    overflow: hidden;
-    transition: max-height 300ms ease-out, padding 300ms ease-out;
-  }
-
-  .controls.expanded {
-    max-height: 80vh;
-    padding: 16px;
-    overflow-y: auto;
-  }
-
-  /* Hide the filters content when collapsed (keep header/toggle visible) */
-  .controls:not(.expanded) .field-grid,
-  .controls:not(.expanded) .actions,
-  .controls:not(.expanded) .status {
-    display: none;
+  /* On mobile, controls panel is inside the overlay — show when overlay is active */
+  .filter-overlay .controls {
+    display: block;
   }
 
   .controls-header {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    padding-right: 32px;
   }
 
   .controls-header h1 {
     margin: 0;
+    font-size: 1.4rem;
   }
 
-  .controls-header .subtitle {
+  .subtitle {
     display: none;
   }
 
-  /* The toggle button is always visible on mobile */
+  /* Close button visible on mobile */
+  .mobile-only {
+    display: block;
+  }
+
+  /* Toggle button visible on mobile, fixed at bottom */
   .filter-toggle {
     display: block;
   }
 
-  /* Rotate the icon when expanded */
-  .controls.expanded .filter-toggle-icon {
-    transform: rotate(-180deg);
+  /* Modal overlay styles for mobile */
+  .filter-overlay {
+    display: flex;
+  }
+
+  .filter-overlay .panel {
+    max-height: 80vh;
+    overflow-y: auto;
+    margin: 0;
   }
 
   .result-meta {
     text-align: left;
-  }
-}
-
-/* Utility class for mobile-only elements */
-.mobile-only {
-  display: none;
-}
-
-@media (max-width: 940px) {
-  .mobile-only {
-    display: block;
   }
 }

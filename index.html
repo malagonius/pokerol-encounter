@@ -11,14 +11,19 @@
 </head>
 <body>
   <main class="layout">
-    <section class="panel controls" id="controlsPanel">
-      <header class="controls-header">
-        <h1>Encounter Helper</h1>
+    <!-- Static toggle button — always visible, stays in place on mobile -->
+    <button type="button" id="filterToggle" class="filter-toggle">
+      <span class="filter-toggle-icon">▼</span> Filters
+    </button>
+
+    <!-- Modal overlay for mobile filter drawer -->
+    <div class="filter-overlay" id="filterOverlay">
+      <section class="panel controls" id="controlsPanel">
+        <div class="controls-header">
+          <h1>Encounter Helper</h1>
+          <button type="button" id="closeOverlay" class="close-overlay mobile-only">✕</button>
+        </div>
         <p class="subtitle">Pokemon encounter generator with extra filters (including Type).</p>
-        <button type="button" id="filterToggle" class="filter-toggle mobile-only">
-          <span class="filter-toggle-icon">▼</span> Show filters
-        </button>
-      </header>
 
       <div class="field-grid">
         <label>
@@ -79,17 +84,6 @@
           <input id="excludeForms" type="checkbox" checked>
           Exclude form variants (name with "-")
         </label>
-
-        <div class="seed-row">
-          <label>
-            Seed
-            <input id="seed" type="text" placeholder="auto-generated if empty">
-          </label>
-          <label class="check-row seed-toggle-row">
-            <input id="randomSeedToggle" type="checkbox" checked>
-            Random seed each generation
-          </label>
-        </div>
       </div>
 
       <div class="actions">
@@ -99,7 +93,9 @@
       </div>
 
       <p id="status" class="status">Loading base Pokemon list...</p>
-    </section>
+      </section>
+    </div>
+    <!-- End filter overlay -->
 
     <section class="panel results">
       <header class="results-head">
