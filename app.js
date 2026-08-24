@@ -443,16 +443,27 @@ async function generateEncounter() {
 
   const found = [];
   const maxChecks = Math.min(orderedCandidates.length, 2200);
+  const batchSize = 50;
 
-  for (let i = 0; i < maxChecks && found.length < count; i += 1) {
-    const candidateName = orderedCandidates[i];
-    try {
-      const record = await getPokemonRecord(candidateName);
-      if (matchesFilters(record, filters)) {
-        found.push(record);
+  let offset = 0;
+  while (found.length < count && offset < maxChecks) {
+    const batch = orderedCandidates.slice(offset, Math.min(offset + batchSize, maxChecks));
+    offset += batch.length;
+
+    setStatus(`Generating encounter... fetched ${offset}/${maxChecks} (${found.length}/${count} matched).`);
+
+    const results = await Promise.allSettled(
+      batch.map((name) => getPokemonRecord(name))
+    );
+
+    for (const result of results) {
+      if (found.length >= count) {
+        break;
       }
-    } catch {
-      // Skip failed records and continue generating results.
+      if (result.status === "fulfilled" && matchesFilters(result.value, filters)) {
+        found.push(result.value);
+      }
+      // Skip rejected (failed fetch) records silently, same as before.
     }
   }
 
