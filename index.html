@@ -11,9 +11,14 @@
 </head>
 <body>
   <main class="layout">
-    <section class="panel controls">
-      <h1>Encounter Helper</h1>
-      <p class="subtitle">Pokemon encounter generator with extra filters (including Type).</p>
+    <section class="panel controls" id="controlsPanel">
+      <header class="controls-header">
+        <h1>Encounter Helper</h1>
+        <p class="subtitle">Pokemon encounter generator with extra filters (including Type).</p>
+        <button type="button" id="filterToggle" class="filter-toggle mobile-only">
+          <span class="filter-toggle-icon">▼</span> Show filters
+        </button>
+      </header>
 
       <div class="field-grid">
         <label>

@@ -74,7 +74,9 @@ const els = {
   status: document.getElementById("status"),
   resultMeta: document.getElementById("resultMeta"),
   results: document.getElementById("results"),
-  cardTemplate: document.getElementById("cardTemplate")
+  cardTemplate: document.getElementById("cardTemplate"),
+  filterToggle: document.getElementById("filterToggle"),
+  controlsPanel: document.getElementById("controlsPanel")
 };
 
 function setupSelects() {
@@ -528,6 +530,41 @@ async function init() {
   els.generateBtn.addEventListener("click", generateEncounter);
   els.copyBtn.addEventListener("click", copyResults);
   els.resetBtn.addEventListener("click", resetFilters);
+
+  // Mobile filter drawer toggle
+  if (els.filterToggle && els.controlsPanel) {
+    els.filterToggle.addEventListener("click", () => {
+      const expanded = els.controlsPanel.classList.toggle("expanded");
+      if (expanded) {
+        els.filterToggle.querySelector(".filter-toggle-icon").textContent = "▲";
+        els.filterToggle.querySelector("span").textContent = " Hide filters";
+      } else {
+        els.filterToggle.querySelector(".filter-toggle-icon").textContent = "▼";
+        els.filterToggle.querySelector("span").textContent = " Show filters";
+      }
+      // Move focus to results section on mobile for quick access
+      if (!expanded) {
+        els.results.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+
+    // Auto-expand filters if a filter was just changed on mobile
+    // (optional UX improvement — user is actively configuring)
+    const filterInputs = els.controlsPanel.querySelectorAll("input, select");
+    filterInputs.forEach((input) => {
+      input.addEventListener("focus", () => {
+        if (!els.controlsPanel.classList.contains("expanded")) {
+          els.controlsPanel.classList.add("expanded");
+          if (els.filterToggle) {
+            const icon = els.filterToggle.querySelector(".filter-toggle-icon");
+            const label = els.filterToggle.querySelector("span");
+            if (icon) icon.textContent = "▲";
+            if (label) label.textContent = " Hide filters";
+          }
+        }
+      });
+    });
+  }
 
   try {
     await loadBaseList();
