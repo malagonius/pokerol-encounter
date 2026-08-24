@@ -24,7 +24,7 @@ const RANK_ICON_BY_METHOD = {
   CHAMPION: "ChampionBall.png"
 };
 const RANK_ICON_BASE_URL = "https://pokeroledex.nl/images/rank/";
-const TYPE_ICON_BASE_URL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/";
+const TYPE_ICON_BASE_URL = "https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/";
 const TYPE_OPTIONS = [
   "Any",
   "normal", "fire", "water", "electric", "grass", "ice", "fighting", "poison", "ground", "flying",
@@ -82,10 +82,11 @@ const els = {
 function setupSelects() {
   const typeIconResolver = (type) => `${TYPE_ICON_BASE_URL}${type}.svg`;
   const upperLabel = (value) => toLabel(value).toUpperCase();
+  const genLabel = (value) => value === "Any" ? "Any" : value.replace("generation-", "").toUpperCase();
 
   renderCheckboxGroup(els.typeOptions, "type", TYPE_OPTIONS, typeIconResolver, null, "type-row");
   renderCheckboxGroup(els.habitatOptions, "habitat", HABITATS);
-  renderCheckboxGroup(els.generationOptions, "generation", GENERATIONS, null, upperLabel);
+  renderCheckboxGroup(els.generationOptions, "generation", GENERATIONS, null, genLabel);
   renderRankMethodGroup(els.rankMethodOptions, "rankMethod", RANK_METHODS);
 }
 
@@ -422,7 +423,7 @@ function render(records) {
     sprite.alt = record.name;
     name.textContent = `${toLabel(record.name)} #${record.id}`;
     meta.textContent = `Rank: ${toLabel(record.rank)} | Habitat: ${toLabel(record.habitat)}`;
-    extra.textContent = `BST: ${record.baseStatTotal} | Gen: ${toLabel(record.generation)} | Legendary: ${record.legendary ? "Yes" : "No"} | Mythical: ${record.mythical ? "Yes" : "No"}`;
+    extra.textContent = `BST: ${record.baseStatTotal} | Gen: ${record.generation === "unknown" ? "Unknown" : record.generation.replace("generation-", "").toUpperCase()} | Legendary: ${record.legendary ? "Yes" : "No"} | Mythical: ${record.mythical ? "Yes" : "No"}`;
 
     record.types.forEach((type) => {
       const chip = document.createElement("span");
