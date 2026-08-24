@@ -280,8 +280,8 @@ button:hover {
 .close-overlay {
   display: none;
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 12px;
+  right: 12px;
   z-index: 1000;
   background: transparent;
   border: none;
@@ -292,12 +292,24 @@ button:hover {
   padding: 4px 8px;
 }
 
+/* Centered modal content container */
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--panel);
+  border-radius: 18px;
+  border: 4px solid var(--border);
+}
+
 @media (max-width: 940px) {
   .close-overlay {
     display: block;
-    position: fixed;
-    top: 20px;
-    right: 20px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
     z-index: 1001;
   }
 }
@@ -334,13 +346,24 @@ button:hover {
     overflow: visible;
   }
 
+  /* Neutralize modal-content on desktop — panel handles styling */
+  .modal-content {
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    max-width: none;
+    box-shadow: none;
+  }
+
   .filter-overlay .panel {
     max-height: calc(100vh - 40px);
     overflow-y: auto;
   }
 
   .controls-header {
-    /* close button is now a fixed sibling of the controls panel */
+    /* header is just title + subtitle on desktop */
   }
 
   /* Subtitle visible on desktop */
@@ -391,9 +414,7 @@ button:hover {
   }
 
   .controls-header {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    margin-bottom: 12px;
   }
 
   .controls-header h1 {
@@ -414,16 +435,24 @@ button:hover {
      shown (display: flex) only when .active class is present */
   .filter-overlay {
     display: none;
+    align-items: center;
+    justify-content: center;
   }
 
   .filter-overlay.active {
     display: flex;
   }
 
+  /* Panel inside modal: remove duplicate border/background — modal-content has those */
   .filter-overlay .panel {
-    max-height: 80vh;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    max-height: calc(80vh - 40px);
     overflow-y: auto;
     margin: 0;
+    padding: 0;
+    width: 100%;
   }
 
   .result-meta {
