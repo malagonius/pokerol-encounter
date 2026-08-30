@@ -431,8 +431,48 @@ function render(records) {
       chips.append(chip);
     });
 
+    // Shiny roll button
+    const card = fragment.querySelector(".card");
+    const shinyBtn = fragment.querySelector(".shiny-btn");
+    if (shinyBtn) {
+      shinyBtn.addEventListener("click", () => rollShiny(card, shinyBtn, record));
+    }
+
     els.results.append(fragment);
   });
+}
+
+function rollShiny(card, btn, record) {
+  const d1 = Math.floor(Math.random() * 20) + 1;
+  const d2 = Math.floor(Math.random() * 20) + 1;
+  const total = d1 + d2;
+
+  if (d1 === 20 && d2 === 20) {
+    record.shiny = true;
+    card.classList.add("shiny");
+
+    // Add shiny tag if not already present
+    if (!card.querySelector(".shiny-tag")) {
+      const tag = document.createElement("span");
+      tag.className = "shiny-tag";
+      tag.textContent = "SHINY";
+      card.querySelector(".chips").prepend(tag);
+    }
+
+    btn.textContent = "✨ Shiiiiiny!";
+    btn.disabled = true;
+    btn.classList.add("rolled");
+  } else {
+    btn.textContent = `Roll again (${d1} + ${d2} = ${total})`;
+    btn.disabled = true;
+    btn.classList.add("rolled");
+    // Re-enable after a short delay so the user sees the result
+    setTimeout(() => {
+      btn.textContent = "Roll Shiny";
+      btn.disabled = false;
+      btn.classList.remove("rolled");
+    }, 2000);
+  }
 }
 
 async function generateEncounter() {

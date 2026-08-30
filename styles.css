@@ -277,6 +277,38 @@ button:hover {
   font-weight: 800;
 }
 
+.shiny-tag {
+  padding: 2px 8px;
+  border: 2px solid #d4af37;
+  border-radius: 999px;
+  background: #d4af37;
+  color: #262219;
+  font-size: 0.78rem;
+  font-weight: 800;
+  animation: pulse-gold 1.5s infinite;
+}
+
+@keyframes pulse-gold {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+
+.shiny-btn {
+  margin-top: 8px;
+  background: #4a91da;
+  color: white;
+  font-size: 0.85rem;
+}
+
+.shiny-btn.rolled {
+  background: #9fa19d;
+}
+
+.card.shiny {
+  border-color: #d4af37 !important;
+  box-shadow: 0 0 20px 6px #d4af37;
+}
+
 /* Filter toggle button — static positioned, hidden on desktop */
 .filter-toggle {
   display: none;
