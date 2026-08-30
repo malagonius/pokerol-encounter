@@ -690,6 +690,8 @@ function render(records) {
     const hpDec = fragment.querySelector(".hp-dec");
     const hpInc = fragment.querySelector(".hp-inc");
     const movesDiv = fragment.querySelector(".moves");
+    const movesSpinner = fragment.querySelector(".moves-spinner");
+    const movesContent = fragment.querySelector(".moves-content");
 
     if (chevronBtn && detailPanel) {
       chevronBtn.addEventListener("click", async () => {
@@ -730,19 +732,34 @@ function render(records) {
                 }
               };
 
-              // Show moves
-              await renderMoves(pokeroleData, movesDiv, record.rank);
+              // Show moves (with spinner while loading)
+              movesSpinner.style.display = "flex";
+              movesContent.style.display = "none";
+              movesContent.textContent = "";
+
+              try {
+                await renderMoves(pokeroleData, movesContent, record.rank);
+                movesSpinner.style.display = "none";
+                movesContent.style.display = "block";
+              } catch (e) {
+                movesSpinner.style.display = "none";
+                movesContent.style.display = "none";
+                console.error("Failed to load moves:", e);
+              }
+
               movesDiv.style.display = "block";
             } else {
               statsGrid.style.display = "none";
               hpRow.style.display = "none";
-              movesDiv.style.display = "none";
+              movesSpinner.style.display = "none";
+              movesContent.style.display = "none";
             }
           } catch (e) {
             console.error("Failed to load Pokerole detail:", e);
             statsGrid.style.display = "none";
             hpRow.style.display = "none";
-            movesDiv.style.display = "none";
+            movesSpinner.style.display = "none";
+            movesContent.style.display = "none";
           }
         } else {
           // Collapse
