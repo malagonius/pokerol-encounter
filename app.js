@@ -438,6 +438,9 @@ function render(records) {
       shinyBtn.addEventListener("click", () => rollShiny(card, shinyBtn, record));
     }
 
+    // Auto-roll shiny on card creation
+    rollShiny(card, shinyBtn, record);
+
     els.results.append(fragment);
   });
 }
