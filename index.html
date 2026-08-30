@@ -106,6 +106,7 @@
   <template id="cardTemplate">
     <article class="card">
       <div class="card-actions">
+        <button class="chevron-btn" type="button" title="Show details">▼</button>
         <button class="lock-btn" type="button" title="Lock this Pokémon">🔒</button>
         <button class="remove-btn" type="button" title="Remove this Pokémon">✕</button>
       </div>
@@ -119,6 +120,16 @@
       </div>
       <div class="chips"></div>
       <button class="shiny-btn" type="button">Roll Shiny</button>
+      <div class="detail-panel" style="display: none;">
+        <div class="stats-grid" style="display: none;"></div>
+        <div class="hp-row" style="display: none;">
+          <span class="hp-label">HP:</span>
+          <button class="hp-dec" type="button">−</button>
+          <span class="hp-value"></span>
+          <button class="hp-inc" type="button">+</button>
+        </div>
+        <div class="moves" style="display: none;"></div>
+      </div>
     </article>
   </template>
 

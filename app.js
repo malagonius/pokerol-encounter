@@ -1,4 +1,7 @@
 ﻿const API = "https://pokeapi.co/api/v2";
+const POKEROLE_DATA_BASE = "https://raw.githubusercontent.com/Pokerole-Software-Development/Pokerole-Data/master/v3.0/Pokedex";
+
+const STAT_NAMES = ["Strength", "Dexterity", "Vitality", "Special", "Insight"];
 
 const RANK_METHODS = [
   "Any",
@@ -52,6 +55,7 @@ const state = {
   cache: new Map(),
   corrections: {},
   typeMembersCache: new Map(),
+  pokeroleCache: new Map(),
   lastResult: [],
   lastPoolSize: 0
 };
@@ -397,6 +401,119 @@ function setStatus(text) {
   els.status.textContent = text;
 }
 
+function statLabel(name) {
+  const labels = {
+    Strength: "Str",
+    Dexterity: "Dex",
+    Vitality: "Vit",
+    Special: "Spc",
+    Insight: "Ins"
+  };
+  return labels[name] || name;
+}
+
+async function fetchPokeroleData(pokemonName) {
+  if (state.pokeroleCache.has(pokemonName)) {
+    return state.pokeroleCache.get(pokemonName);
+  }
+
+  const titleName = toLabel(pokemonName);
+  const url = `${POKEROLE_DATA_BASE}/${encodeURIComponent(titleName)}.json`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    state.pokeroleCache.set(pokemonName, data);
+    return data;
+  } catch (e) {
+    console.warn(`Failed to load Pokerole data for ${pokemonName}:`, e);
+    return null;
+  }
+}
+
+function generateStats(pokeroleData) {
+  const stats = {};
+  const statKeys = ["Strength", "Dexterity", "Vitality", "Special", "Insight"];
+
+  for (const key of statKeys) {
+    const base = pokeroleData[key] || 1;
+    const max = pokeroleData[`Max${key}`] || base;
+    // Roll between base and max (inclusive)
+    const rolled = base + Math.floor(Math.random() * (max - base + 1));
+    stats[key] = rolled;
+  }
+
+  // Base HP from Pokerole data + Vitality score
+  const baseHP = pokeroleData.BaseHP || 1;
+  stats.maxHP = baseHP + stats.Vitality;
+  stats.currentHP = stats.maxHP;
+
+  return stats;
+}
+
+function renderStats(stats, container) {
+  container.textContent = "";
+
+  for (const key of STAT_NAMES) {
+    const row = document.createElement("div");
+    row.className = "stat-row";
+
+    const label = document.createElement("span");
+    label.className = "stat-label";
+    label.textContent = statLabel(key);
+
+    const value = document.createElement("span");
+    value.className = "stat-value";
+    value.textContent = stats[key];
+
+    row.append(label, value);
+    container.append(row);
+  }
+}
+
+function renderMoves(pokeroleData, container, rank) {
+  container.textContent = "";
+
+  // Map our app's rank to Pokerole rank
+  const rankMap = {
+    UNRANKED: "Starter",
+    STARTER: "Starter",
+    ROOKIE: "Rookie",
+    STANDARD: "Standard",
+    ADVANCED: "Advanced",
+    EXPERT: "Expert",
+    ACE: "Ace",
+    MASTER: "Master",
+    CHAMPION: "Champion"
+  };
+  const targetRank = rankMap[rank] || "Starter";
+
+  // Get moves learned at or below the target rank
+  const rankOrder = ["Starter", "Rookie", "Standard", "Advanced", "Expert", "Ace", "Master", "Champion"];
+  const targetIdx = rankOrder.indexOf(targetRank);
+
+  const moves = (pokeroleData.Moves || [])
+    .filter((m) => {
+      const learnedRank = m.Learned || "";
+      const moveIdx = rankOrder.indexOf(learnedRank);
+      return moveIdx !== -1 && moveIdx <= targetIdx;
+    })
+    .map((m) => m.Name);
+
+  if (moves.length === 0) {
+    container.textContent = "No moves found";
+    return;
+  }
+
+  moves.forEach((moveName) => {
+    const chip = document.createElement("span");
+    chip.className = "move-chip";
+    chip.textContent = moveName;
+    container.append(chip);
+  });
+}
+
 function render(records) {
   els.results.textContent = "";
   els.resultMeta.textContent = records.length
@@ -478,6 +595,77 @@ function render(records) {
       removeBtn.addEventListener("click", () => {
         card.remove();
         record.removed = true;
+      });
+    }
+
+    // Chevron / detail panel toggle
+    const chevronBtn = fragment.querySelector(".chevron-btn");
+    const detailPanel = fragment.querySelector(".detail-panel");
+    const statsGrid = fragment.querySelector(".stats-grid");
+    const hpRow = fragment.querySelector(".hp-row");
+    const hpValue = fragment.querySelector(".hp-value");
+    const hpDec = fragment.querySelector(".hp-dec");
+    const hpInc = fragment.querySelector(".hp-inc");
+    const movesDiv = fragment.querySelector(".moves");
+
+    if (chevronBtn && detailPanel) {
+      chevronBtn.addEventListener("click", async () => {
+        const isExpanded = !detailPanel.style.display || detailPanel.style.display === "none";
+
+        if (isExpanded) {
+          // Expand: fetch Pokerole data and generate stats once
+          chevronBtn.classList.add("expanded");
+          detailPanel.style.display = "block";
+
+          try {
+            const pokeroleData = await fetchPokeroleData(record.name);
+            if (pokeroleData) {
+              // Generate stats once — cached on record
+              if (!record.pokeroleStats) {
+                record.pokeroleStats = generateStats(pokeroleData);
+              }
+
+              // Show stats
+              renderStats(record.pokeroleStats, statsGrid);
+              statsGrid.style.display = "grid";
+
+              // Show HP row
+              hpValue.textContent = record.pokeroleStats.currentHP;
+              hpRow.style.display = "flex";
+
+              // HP adjust handlers
+              hpDec.onclick = () => {
+                if (record.pokeroleStats.currentHP > 0) {
+                  record.pokeroleStats.currentHP--;
+                  hpValue.textContent = record.pokeroleStats.currentHP;
+                }
+              };
+              hpInc.onclick = () => {
+                if (record.pokeroleStats.currentHP < record.pokeroleStats.maxHP) {
+                  record.pokeroleStats.currentHP++;
+                  hpValue.textContent = record.pokeroleStats.currentHP;
+                }
+              };
+
+              // Show moves
+              renderMoves(pokeroleData, movesDiv, record.rank);
+              movesDiv.style.display = "block";
+            } else {
+              statsGrid.style.display = "none";
+              hpRow.style.display = "none";
+              movesDiv.style.display = "none";
+            }
+          } catch (e) {
+            console.error("Failed to load Pokerole detail:", e);
+            statsGrid.style.display = "none";
+            hpRow.style.display = "none";
+            movesDiv.style.display = "none";
+          }
+        } else {
+          // Collapse
+          chevronBtn.classList.remove("expanded");
+          detailPanel.style.display = "none";
+        }
       });
     }
 
