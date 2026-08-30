@@ -309,6 +309,44 @@ button:hover {
   box-shadow: 0 0 20px 6px #d4af37;
 }
 
+.card-actions {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+  margin-bottom: 2px;
+}
+
+.card-actions button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  font-size: 0.85rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: #fcfbf6;
+  cursor: pointer;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-actions button:hover {
+  transform: none;
+  filter: brightness(1.1);
+}
+
+.lock-btn.locked {
+  color: #d4af37;
+  border-color: #d4af37;
+  background: rgba(212, 175, 55, 0.2);
+}
+
+.card.locked {
+  opacity: 0.7;
+  border-color: #d4af37 !important;
+}
+
 /* Filter toggle button — static positioned, hidden on desktop */
 .filter-toggle {
   display: none;

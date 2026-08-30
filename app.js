@@ -438,8 +438,48 @@ function render(records) {
       shinyBtn.addEventListener("click", () => rollShiny(card, shinyBtn, record));
     }
 
-    // Auto-roll shiny on card creation
-    rollShiny(card, shinyBtn, record);
+    // Restore shiny state if already rolled
+    if (record.shiny) {
+      card.classList.add("shiny");
+      if (!card.querySelector(".shiny-tag")) {
+        const tag = document.createElement("span");
+        tag.className = "shiny-tag";
+        tag.textContent = "SHINY";
+        card.querySelector(".chips").prepend(tag);
+      }
+      shinyBtn.textContent = "✨ Shiiiiiny!";
+      shinyBtn.disabled = true;
+      shinyBtn.classList.add("rolled");
+    } else {
+      // Auto-roll shiny on card creation
+      rollShiny(card, shinyBtn, record);
+    }
+
+    // Lock button
+    const lockBtn = fragment.querySelector(".lock-btn");
+    if (lockBtn) {
+      lockBtn.addEventListener("click", () => {
+        record.locked = !record.locked;
+        card.classList.toggle("locked", record.locked);
+        lockBtn.classList.toggle("locked", record.locked);
+        lockBtn.textContent = record.locked ? "✓" : "🔒";
+      });
+      // Restore lock state if already locked
+      if (record.locked) {
+        card.classList.add("locked");
+        lockBtn.classList.add("locked");
+        lockBtn.textContent = "✓";
+      }
+    }
+
+    // Remove button
+    const removeBtn = fragment.querySelector(".remove-btn");
+    if (removeBtn) {
+      removeBtn.addEventListener("click", () => {
+        card.remove();
+        record.removed = true;
+      });
+    }
 
     els.results.append(fragment);
   });
@@ -522,12 +562,16 @@ async function generateEncounter() {
   state.lastPoolSize = baseCandidates.length;
   const orderedCandidates = shuffled(baseCandidates, rng);
 
+  // Preserve locked Pokemon from the previous encounter
+  const lockedRecords = state.lastResult.filter((r) => r.locked);
+  const adjustedCount = Math.max(count - lockedRecords.length, 1);
+
   const found = [];
   const maxChecks = orderedCandidates.length;
   const batchSize = 50;
 
   let offset = 0;
-  while (found.length < count && offset < maxChecks) {
+  while (found.length < adjustedCount && offset < maxChecks) {
     const batch = orderedCandidates.slice(offset, Math.min(offset + batchSize, maxChecks));
     offset += batch.length;
 
@@ -548,15 +592,15 @@ async function generateEncounter() {
     }
   }
 
-  state.lastResult = found;
-  render(found);
+  state.lastResult = [...lockedRecords, ...found];
+  render([...lockedRecords, ...found]);
 
   if (found.length < count) {
     setStatus(
-      `Found ${found.length}/${count}. Filters may be too strict or require deeper scan.`
+      `Found ${found.length}/${adjustedCount}${lockedRecords.length > 0 ? ` (+ ${lockedRecords.length} locked)` : ""}. Filters may be too strict or require deeper scan.`
     );
   } else {
-    setStatus(`Generated ${found.length} Pokemon.`);
+    setStatus(`Generated ${found.length}${lockedRecords.length > 0 ? ` (+ ${lockedRecords.length} locked)` : ""} Pokemon.`);
   }
 
   // On mobile, close the filter overlay after generating
