@@ -1,5 +1,6 @@
 ﻿const API = "https://pokeapi.co/api/v2";
 const POKEROLE_DATA_BASE = "https://raw.githubusercontent.com/Pokerole-Software-Development/Pokerole-Data/master/v3.0/Pokedex";
+const MOVE_DATA_BASE = "https://raw.githubusercontent.com/Pokerole-Software-Development/Pokerole-Data/master/v3.0/Moves";
 
 const STAT_NAMES = ["Strength", "Dexterity", "Vitality", "Special", "Insight"];
 
@@ -56,6 +57,7 @@ const state = {
   corrections: {},
   typeMembersCache: new Map(),
   pokeroleCache: new Map(),
+  moveCache: new Map(),
   lastResult: [],
   lastPoolSize: 0
 };
@@ -432,6 +434,25 @@ async function fetchPokeroleData(pokemonName) {
   }
 }
 
+async function fetchMoveData(moveName) {
+  if (state.moveCache.has(moveName)) {
+    return state.moveCache.get(moveName);
+  }
+
+  const url = `${MOVE_DATA_BASE}/${encodeURIComponent(moveName)}.json`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    state.moveCache.set(moveName, data);
+    return data;
+  } catch (e) {
+    console.warn(`Failed to load move data for ${moveName}:`, e);
+    return null;
+  }
+}
+
 function generateStats(pokeroleData) {
   const stats = {};
   const statKeys = ["Strength", "Dexterity", "Vitality", "Special", "Insight"];
@@ -472,7 +493,7 @@ function renderStats(stats, container) {
   }
 }
 
-function renderMoves(pokeroleData, container, rank) {
+async function renderMoves(pokeroleData, container, rank) {
   container.textContent = "";
 
   // Map our app's rank to Pokerole rank
@@ -493,25 +514,87 @@ function renderMoves(pokeroleData, container, rank) {
   const rankOrder = ["Starter", "Rookie", "Standard", "Advanced", "Expert", "Ace", "Master", "Champion"];
   const targetIdx = rankOrder.indexOf(targetRank);
 
-  const moves = (pokeroleData.Moves || [])
+  const eligibleMoves = (pokeroleData.Moves || [])
     .filter((m) => {
       const learnedRank = m.Learned || "";
       const moveIdx = rankOrder.indexOf(learnedRank);
       return moveIdx !== -1 && moveIdx <= targetIdx;
-    })
-    .map((m) => m.Name);
+    });
 
-  if (moves.length === 0) {
+  if (eligibleMoves.length === 0) {
     container.textContent = "No moves found";
     return;
   }
 
-  moves.forEach((moveName) => {
-    const chip = document.createElement("span");
-    chip.className = "move-chip";
-    chip.textContent = moveName;
-    container.append(chip);
-  });
+  // Group moves by rank
+  const grouped = {};
+  for (const rankName of rankOrder) {
+    grouped[rankName] = [];
+  }
+
+  for (const moveEntry of eligibleMoves) {
+    const moveRank = moveEntry.Learned || "Starter";
+    if (grouped[moveRank]) {
+      grouped[moveRank].push(moveEntry.Name);
+    }
+  }
+
+  // Fetch move details and render grouped
+  for (const rankName of rankOrder) {
+    const moveNames = grouped[rankName];
+    if (moveNames.length === 0) continue;
+
+    const rankHeader = document.createElement("div");
+    rankHeader.className = "move-rank-header";
+    rankHeader.textContent = `— ${rankName} —`;
+    container.append(rankHeader);
+
+    for (const moveName of moveNames) {
+      const moveData = await fetchMoveData(moveName);
+      const moveEl = document.createElement("div");
+      moveEl.className = "move-detail";
+
+      const moveTitle = document.createElement("div");
+      moveTitle.className = "move-title";
+      moveTitle.textContent = moveName;
+      moveEl.append(moveTitle);
+
+      if (moveData) {
+        const moveMeta = document.createElement("div");
+        moveMeta.className = "move-meta";
+
+        const damageStat = moveData.Damage1 || moveData.Damage2 || "—";
+        const accStat = moveData.Accuracy1 || "—";
+        const power = moveData.Power != null ? moveData.Power : "—";
+        const accuracy2 = moveData.Accuracy2 || "";
+
+        moveMeta.textContent =
+          `Type: ${moveData.Type || "—"} | Power: ${power}` +
+          ` | Damage: ${damageStat}` +
+          ` | Accuracy: ${accStat}${accuracy2 ? " + " + accuracy2 : ""}` +
+          ` | Target: ${moveData.Target || "—"}`;
+        moveEl.append(moveMeta);
+
+        if (moveData.Effect) {
+          const effectEl = document.createElement("div");
+          effectEl.className = "move-effect";
+          effectEl.textContent = moveData.Effect;
+          moveEl.append(effectEl);
+        }
+
+        if (moveData.Description) {
+          const descEl = document.createElement("div");
+          descEl.className = "move-description";
+          descEl.textContent = moveData.Description;
+          moveEl.append(descEl);
+        }
+      } else {
+        moveEl.textContent = moveName;
+      }
+
+      container.append(moveEl);
+    }
+  }
 }
 
 function render(records) {
@@ -648,7 +731,7 @@ function render(records) {
               };
 
               // Show moves
-              renderMoves(pokeroleData, movesDiv, record.rank);
+              await renderMoves(pokeroleData, movesDiv, record.rank);
               movesDiv.style.display = "block";
             } else {
               statsGrid.style.display = "none";

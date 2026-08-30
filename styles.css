@@ -443,6 +443,36 @@ button:hover {
   font-weight: 800;
 }
 
+.move-rank-header {
+  margin: 10px 0 4px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  color: var(--teal);
+}
+
+.move-detail {
+  background: #fcfbf6;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 6px 8px;
+  margin-bottom: 6px;
+}
+
+.move-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.move-meta,
+.move-effect,
+.move-description {
+  font-size: 0.78rem;
+  margin-top: 2px;
+}
+
 /* Filter toggle button — static positioned, hidden on desktop */
 .filter-toggle {
   display: none;
