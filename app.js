@@ -906,8 +906,9 @@ async function generateEncounter() {
   render([...lockedRecords, ...found]);
 
   if (found.length < count) {
+    const dupMsg = filters.allowDuplicates ? " (duplicates allowed)" : "";
     setStatus(
-      `Found ${found.length}/${adjustedCount}${lockedRecords.length > 0 ? ` (+ ${lockedRecords.length} locked)` : ""}. Filters may be too strict or require deeper scan.`
+      `Found ${found.length}/${adjustedCount}${lockedRecords.length > 0 ? ` (+ ${lockedRecords.length} locked)` : ""}${dupMsg}. Filters may be too strict or require deeper scan.`
     );
   } else {
     setStatus(`Generated ${found.length}${lockedRecords.length > 0 ? ` (+ ${lockedRecords.length} locked)` : ""} Pokemon.`);
