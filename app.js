@@ -73,6 +73,7 @@ const els = {
   legendaryFilter: document.getElementById("legendaryFilter"),
   includeMythical: document.getElementById("includeMythical"),
   excludeForms: document.getElementById("excludeForms"),
+  allowDuplicates: document.getElementById("allowDuplicates"),
   generateBtn: document.getElementById("generateBtn"),
   copyBtn: document.getElementById("copyBtn"),
   resetBtn: document.getElementById("resetBtn"),
@@ -823,7 +824,8 @@ async function generateEncounter() {
     rankOrLower: els.rankOrLower.checked,
     legendary: els.legendaryFilter.value,
     includeMythical: els.includeMythical.checked,
-    excludeForms: els.excludeForms.checked
+    excludeForms: els.excludeForms.checked,
+    allowDuplicates: els.allowDuplicates.checked
   };
 
   setStatus("Generating encounter... fetching matching records.");
@@ -868,6 +870,7 @@ async function generateEncounter() {
   const adjustedCount = Math.max(count - lockedRecords.length, 1);
 
   const found = [];
+  const foundNames = new Set();
   const maxChecks = orderedCandidates.length;
   const batchSize = 50;
 
@@ -887,6 +890,12 @@ async function generateEncounter() {
         break;
       }
       if (result.status === "fulfilled" && matchesFilters(result.value, filters)) {
+        const pkmnName = result.value.name;
+        // Skip duplicates unless allowDuplicates is checked
+        if (!filters.allowDuplicates && foundNames.has(pkmnName)) {
+          continue;
+        }
+        foundNames.add(pkmnName);
         found.push(result.value);
       }
       // Skip rejected (failed fetch) records silently, same as before.
@@ -942,6 +951,7 @@ function resetFilters() {
   els.rankOrLower.checked = true;
   els.includeMythical.checked = false;
   els.excludeForms.checked = true;
+  els.allowDuplicates.checked = false;
   state.lastResult = [];
   state.lastPoolSize = 0;
   els.resultMeta.textContent = "";
