@@ -812,7 +812,6 @@ async function generateEncounter() {
 
   const seedText = `${Date.now()}-${Math.floor(Math.random() * 1_000_000)}`;
   const filters = {
-    nameContains: els.nameFilter.value.trim().toLowerCase(),
     nameList: els.nameFilter.value.trim()
       .split(",")
       .map((s) => s.trim().toLowerCase())
@@ -832,16 +831,14 @@ async function generateEncounter() {
 
   let baseCandidates;
 
-  // If a comma-separated name list is provided (multiple names), filter to exact matches
-  if (filters.nameList.length > 1) {
+  // Name filter: split by comma, match any of the names via substring (OR logic)
+  if (filters.nameList.length > 0) {
     baseCandidates = state.allPokemon.filter((name) =>
-      filters.nameList.includes(name)
+      filters.nameList.some((partial) => name.includes(partial))
     );
   } else {
-    // Single name or substring filter
-    baseCandidates = state.allPokemon.filter((name) =>
-      name.includes(filters.nameContains)
-    );
+    // No name filter at all
+    baseCandidates = [...state.allPokemon];
   }
 
   if (filters.excludeForms) {
