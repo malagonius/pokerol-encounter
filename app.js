@@ -813,6 +813,10 @@ async function generateEncounter() {
   const seedText = `${Date.now()}-${Math.floor(Math.random() * 1_000_000)}`;
   const filters = {
     nameContains: els.nameFilter.value.trim().toLowerCase(),
+    nameList: els.nameFilter.value.trim()
+      .split(",")
+      .map((s) => s.trim().toLowerCase())
+      .filter((s) => s.length > 0),
     types: readCheckboxGroupValues("type"),
     generations: readCheckboxGroupValues("generation"),
     habitats: readCheckboxGroupValues("habitat"),
@@ -826,7 +830,19 @@ async function generateEncounter() {
   setStatus("Generating encounter... fetching matching records.");
   const rng = seededRandom(seedText);
 
-  let baseCandidates = state.allPokemon.filter((name) => name.includes(filters.nameContains));
+  let baseCandidates;
+
+  // If a comma-separated name list is provided (multiple names), filter to exact matches
+  if (filters.nameList.length > 1) {
+    baseCandidates = state.allPokemon.filter((name) =>
+      filters.nameList.includes(name)
+    );
+  } else {
+    // Single name or substring filter
+    baseCandidates = state.allPokemon.filter((name) =>
+      name.includes(filters.nameContains)
+    );
+  }
 
   if (filters.excludeForms) {
     baseCandidates = baseCandidates.filter((name) => !name.includes("-"));
