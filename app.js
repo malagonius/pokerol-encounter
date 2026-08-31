@@ -952,7 +952,7 @@ function resetFilters() {
   els.rankOrLower.checked = true;
   els.includeMythical.checked = false;
   els.excludeForms.checked = true;
-  els.allowDuplicates.checked = false;
+  els.allowDuplicates.checked = true;
   state.lastResult = [];
   state.lastPoolSize = 0;
   els.resultMeta.textContent = "";
