@@ -3,6 +3,29 @@ const POKEROLE_DATA_BASE = "https://raw.githubusercontent.com/Pokerole-Software-
 const MOVE_DATA_BASE = "https://raw.githubusercontent.com/Pokerole-Software-Development/Pokerole-Data/master/v3.0/Moves";
 
 const STAT_NAMES = ["Strength", "Dexterity", "Vitality", "Special", "Insight"];
+const SOCIAL_NAMES = ["Tough", "Cool", "Beauty", "Cute", "Clever"];
+const SKILL_NAMES = [
+  "Brawl", "Channel", "Clash", "Evasion", "Alert", "Athletic",
+  "Nature", "Stealth", "Allure", "Etiquette", "Intimidate", "Perform"
+];
+const NATURES = [
+  ["Adamant", 4], ["Bashful", 6], ["Bold", 9], ["Brave", 9], ["Calm", 8],
+  ["Careful", 5], ["Docile", 7], ["Gentle", 10], ["Hardy", 9], ["Hasty", 7],
+  ["Impish", 7], ["Jolly", 10], ["Lax", 8], ["Lonely", 5], ["Mild", 8],
+  ["Modest", 10], ["Naive", 7], ["Naughty", 6], ["Quiet", 5], ["Quirky", 9],
+  ["Rash", 6], ["Relaxed", 8], ["Sassy", 7], ["Serious", 4], ["Timid", 4]
+];
+const RANK_GENERATION_RULES = {
+  UNRANKED: { attributes: 0, socials: 0, skills: 0, skillLimit: 1 },
+  STARTER: { attributes: 0, socials: 0, skills: 5, skillLimit: 1 },
+  ROOKIE: { attributes: 2, socials: 2, skills: 10, skillLimit: 2 },
+  STANDARD: { attributes: 4, socials: 4, skills: 14, skillLimit: 3 },
+  ADVANCED: { attributes: 6, socials: 6, skills: 17, skillLimit: 4 },
+  EXPERT: { attributes: 8, socials: 8, skills: 19, skillLimit: 5 },
+  ACE: { attributes: 10, socials: 10, skills: 20, skillLimit: 5 },
+  MASTER: { attributes: 10, socials: 10, skills: 22, skillLimit: 5 },
+  CHAMPION: { attributes: 10, socials: 10, skills: 22, skillLimit: 5 }
+};
 
 const RANK_METHODS = [
   "Any",
@@ -233,6 +256,11 @@ function rankFromBst(baseStatTotal) {
   return "CHAMPION";
 }
 
+function rankFromPokerole(pokeroleData, baseStatTotal) {
+  const recommendedRank = pokeroleData?.RecommendedRank?.toUpperCase();
+  return RANK_METHODS.includes(recommendedRank) ? recommendedRank : rankFromBst(baseStatTotal);
+}
+
 function seededRandom(seed) {
   const seedText = String(seed || "");
   const hash = xmur3(seedText || String(Date.now()));
@@ -302,7 +330,10 @@ async function getPokemonRecord(name) {
   }
 
   const pokemon = await pokemonRes.json();
-  const speciesRes = await fetch(pokemon.species.url);
+  const [speciesRes, pokeroleData] = await Promise.all([
+    fetch(pokemon.species.url),
+    fetchPokeroleData(name)
+  ]);
   if (!speciesRes.ok) {
     throw new Error(`Cannot load species for ${name}.`);
   }
@@ -318,7 +349,7 @@ async function getPokemonRecord(name) {
     legendary: species.is_legendary,
     mythical: species.is_mythical,
     baseStatTotal,
-    rank: rankFromBst(baseStatTotal),
+    rank: rankFromPokerole(pokeroleData, baseStatTotal),
     sprite: pokemon.sprites.other["official-artwork"].front_default || pokemon.sprites.front_default
   };
 
@@ -400,6 +431,16 @@ function matchesFilters(record, filters) {
   return true;
 }
 
+function createEncounterRecord(baseRecord) {
+  return {
+    ...baseRecord,
+    locked: false,
+    removed: false,
+    shiny: false,
+    pokeroleStats: null
+  };
+}
+
 function setStatus(text) {
   els.status.textContent = text;
 }
@@ -454,19 +495,37 @@ async function fetchMoveData(moveName) {
   }
 }
 
-function generateStats(pokeroleData) {
-  const stats = {};
-  const statKeys = ["Strength", "Dexterity", "Vitality", "Special", "Insight"];
-
-  for (const key of statKeys) {
-    const base = pokeroleData[key] || 1;
-    const max = pokeroleData[`Max${key}`] || base;
-    // Roll between base and max (inclusive)
-    const rolled = base + Math.floor(Math.random() * (max - base + 1));
-    stats[key] = rolled;
+function distributePoints(stats, names, points, maximumFor) {
+  for (let point = 0; point < points; point += 1) {
+    const eligibleNames = names.filter((name) => stats[name] < maximumFor(name));
+    if (eligibleNames.length === 0) break;
+    const selectedName = eligibleNames[Math.floor(Math.random() * eligibleNames.length)];
+    stats[selectedName] += 1;
   }
+}
 
-  // Base HP from Pokerole data + Vitality score
+function generateStats(pokeroleData, rank) {
+  const stats = {};
+  const rules = RANK_GENERATION_RULES[rank] || RANK_GENERATION_RULES.STARTER;
+
+  for (const name of STAT_NAMES) {
+    stats[name] = pokeroleData[name] || 1;
+  }
+  distributePoints(stats, STAT_NAMES, rules.attributes, (name) => pokeroleData[`Max${name}`] || stats[name]);
+
+  for (const name of SOCIAL_NAMES) {
+    stats[name] = 1;
+  }
+  distributePoints(stats, SOCIAL_NAMES, rules.socials, () => 5);
+
+  for (const name of SKILL_NAMES) {
+    stats[name] = 0;
+  }
+  distributePoints(stats, SKILL_NAMES, rules.skills, () => rules.skillLimit);
+
+  const [natureName, confidence] = NATURES[Math.floor(Math.random() * NATURES.length)];
+  stats.natureInfo = { name: natureName, confidence };
+
   const baseHP = pokeroleData.BaseHP || 1;
   stats.maxHP = baseHP + stats.Vitality;
   stats.currentHP = stats.maxHP;
@@ -477,24 +536,202 @@ function generateStats(pokeroleData) {
 function renderStats(stats, container) {
   container.textContent = "";
 
-  for (const key of STAT_NAMES) {
-    const row = document.createElement("div");
-    row.className = "stat-row";
+  const nature = document.createElement("div");
+  nature.className = "nature-summary";
+  nature.textContent = `${stats.natureInfo.name} nature · Confidence ${stats.natureInfo.confidence}`;
+  container.append(nature);
 
-    const label = document.createElement("span");
-    label.className = "stat-label";
-    label.textContent = statLabel(key);
+  const groups = [
+    ["Attributes", STAT_NAMES],
+    ["Socials", SOCIAL_NAMES],
+    ["Skills", SKILL_NAMES]
+  ];
 
-    const value = document.createElement("span");
-    value.className = "stat-value";
-    value.textContent = stats[key];
+  for (const [groupName, names] of groups) {
+    const group = document.createElement("section");
+    group.className = `stat-group stat-group-${groupName.toLowerCase()}`;
 
-    row.append(label, value);
-    container.append(row);
+    const heading = document.createElement("h5");
+    heading.className = "stat-group-heading";
+    heading.textContent = groupName;
+
+    const values = document.createElement("div");
+    values.className = "stat-group-values";
+
+    for (const name of names) {
+      const row = document.createElement("div");
+      row.className = "stat-row";
+
+      const label = document.createElement("span");
+      label.className = "stat-label";
+      label.textContent = statLabel(name);
+      label.title = name;
+
+      const value = document.createElement("span");
+      value.className = "stat-value";
+      value.textContent = stats[name];
+
+      row.append(label, value);
+      values.append(row);
+    }
+
+    group.append(heading, values);
+    container.append(group);
   }
 }
 
-async function renderMoves(pokeroleData, container, rank) {
+function abbreviateMoveTerm(term) {
+  const abbreviations = {
+    Athletic: "ATH",
+    Brawl: "BRL",
+    Channel: "CHN",
+    Charm: "CHM",
+    Clever: "CLV",
+    Cute: "CUT",
+    Intimidate: "ITM",
+    Perform: "PRF",
+    Stealth: "STL",
+    Tough: "TGH"
+  };
+  return abbreviations[term] || term.toUpperCase();
+}
+
+function translateMoveFormula(formula, stats) {
+  if (!formula) return "";
+
+  return formula
+    .split("/")
+    .map((term) => {
+      const trimmedTerm = term.trim();
+      return Object.hasOwn(stats, trimmedTerm)
+        ? String(stats[trimmedTerm])
+        : abbreviateMoveTerm(trimmedTerm);
+    })
+    .join("/");
+}
+
+function addFormulaChoices(parts) {
+  let totals = [0];
+
+  for (const part of parts.filter(Boolean)) {
+    const choices = part.split("/").map(Number);
+    if (!choices.every(Number.isFinite)) return parts.filter(Boolean).join(" + ");
+    totals = totals.flatMap((total) => choices.map((choice) => total + choice));
+  }
+
+  return [...new Set(totals)].join("/");
+}
+
+function translateDamage(moveData, stats) {
+  const damageParts = [moveData.Damage1, moveData.Damage2]
+    .filter(Boolean)
+    .map((formula) => translateMoveFormula(formula, stats));
+  const power = Number(moveData.Power) || 0;
+
+  if (damageParts.length === 0) return "—";
+  return addFormulaChoices(power > 0 ? [...damageParts, String(power)] : damageParts);
+}
+
+function translateAccuracy(moveData, stats) {
+  const accuracy = translateMoveFormula(moveData.Accuracy1, stats) || "—";
+  const skill = translateMoveFormula(moveData.Accuracy2, stats);
+  return addFormulaChoices(skill ? [accuracy, skill] : [accuracy]);
+}
+
+function createMoveMetric(label, value, title) {
+  const metric = document.createElement("span");
+  metric.className = "move-metric";
+  metric.textContent = `${label}: ${value}`;
+  metric.title = title;
+  return metric;
+}
+
+function createMoveRow(moveName, moveData, learnedRank, stats) {
+  const row = document.createElement("details");
+  row.className = "move-row";
+  row.dataset.type = (moveData?.Type || "normal").toLowerCase();
+
+  const summary = document.createElement("summary");
+  summary.className = "move-summary";
+
+  const rankIcon = document.createElement("img");
+  rankIcon.className = "move-rank-icon";
+  rankIcon.src = `${RANK_ICON_BASE_URL}${RANK_ICON_BY_METHOD[learnedRank.toUpperCase()] || RANK_ICON_BY_METHOD.STARTER}`;
+  rankIcon.alt = `${learnedRank} rank`;
+  rankIcon.title = `Learned at ${learnedRank} rank`;
+
+  const typeIcon = document.createElement("img");
+  typeIcon.className = "move-type-icon";
+  typeIcon.src = `${TYPE_ICON_BASE_URL}${row.dataset.type}.svg`;
+  typeIcon.alt = "";
+  typeIcon.title = moveData?.Type || "Unknown type";
+
+  const title = document.createElement("span");
+  title.className = "move-title";
+  title.textContent = moveName;
+
+  const metrics = document.createElement("span");
+  metrics.className = "move-metrics";
+
+  if (moveData) {
+    metrics.append(
+      createMoveMetric(
+        "A",
+        translateAccuracy(moveData, stats),
+        `Accuracy: ${moveData.Accuracy1 || "—"}${moveData.Accuracy2 ? ` + ${moveData.Accuracy2}` : ""}`
+      ),
+      createMoveMetric(
+        "D",
+        translateDamage(moveData, stats),
+        `Damage: ${moveData.Damage1 || moveData.Damage2 || "—"}${Number(moveData.Power) ? ` + Power ${moveData.Power}` : ""}`
+      )
+    );
+  }
+
+  const category = document.createElement("span");
+  category.className = `move-category move-category-${(moveData?.Category || "support").toLowerCase()}`;
+  category.textContent = moveData?.Category === "Physical" ? "✹" : moveData?.Category === "Special" ? "◎" : "◉";
+  category.title = moveData?.Category || "Support";
+
+  const disclosure = document.createElement("span");
+  disclosure.className = "move-disclosure";
+  disclosure.textContent = "⌄";
+  disclosure.setAttribute("aria-hidden", "true");
+
+  summary.append(rankIcon, typeIcon, title, metrics, category, disclosure);
+  row.append(summary);
+
+  const body = document.createElement("div");
+  body.className = "move-body";
+
+  if (moveData) {
+    const context = document.createElement("p");
+    context.className = "move-context";
+    context.textContent = `${moveData.Type || "Unknown"} · ${moveData.Category || "Unknown"} · Target: ${moveData.Target || "—"}`;
+    body.append(context);
+
+    if (moveData.Effect) {
+      const effect = document.createElement("p");
+      effect.className = "move-effect";
+      effect.textContent = moveData.Effect.trim();
+      body.append(effect);
+    }
+
+    if (moveData.Description) {
+      const description = document.createElement("p");
+      description.className = "move-description";
+      description.textContent = moveData.Description;
+      body.append(description);
+    }
+  } else {
+    body.textContent = "Move details unavailable.";
+  }
+
+  row.append(body);
+  return row;
+}
+
+async function renderMoves(pokeroleData, container, rank, stats) {
   container.textContent = "";
 
   // Map our app's rank to Pokerole rank
@@ -527,75 +764,10 @@ async function renderMoves(pokeroleData, container, rank) {
     return;
   }
 
-  // Group moves by rank
-  const grouped = {};
-  for (const rankName of rankOrder) {
-    grouped[rankName] = [];
-  }
-
-  for (const moveEntry of eligibleMoves) {
-    const moveRank = moveEntry.Learned || "Starter";
-    if (grouped[moveRank]) {
-      grouped[moveRank].push(moveEntry.Name);
-    }
-  }
-
-  // Fetch move details and render grouped
-  for (const rankName of rankOrder) {
-    const moveNames = grouped[rankName];
-    if (moveNames.length === 0) continue;
-
-    const rankHeader = document.createElement("div");
-    rankHeader.className = "move-rank-header";
-    rankHeader.textContent = `— ${rankName} —`;
-    container.append(rankHeader);
-
-    for (const moveName of moveNames) {
-      const moveData = await fetchMoveData(moveName);
-      const moveEl = document.createElement("div");
-      moveEl.className = "move-detail";
-
-      const moveTitle = document.createElement("div");
-      moveTitle.className = "move-title";
-      moveTitle.textContent = moveName;
-      moveEl.append(moveTitle);
-
-      if (moveData) {
-        const moveMeta = document.createElement("div");
-        moveMeta.className = "move-meta";
-
-        const damageStat = moveData.Damage1 || moveData.Damage2 || "—";
-        const accStat = moveData.Accuracy1 || "—";
-        const power = moveData.Power != null ? moveData.Power : "—";
-        const accuracy2 = moveData.Accuracy2 || "";
-
-        moveMeta.textContent =
-          `Type: ${moveData.Type || "—"} | Power: ${power}` +
-          ` | Damage: ${damageStat}` +
-          ` | Accuracy: ${accStat}${accuracy2 ? " + " + accuracy2 : ""}` +
-          ` | Target: ${moveData.Target || "—"}`;
-        moveEl.append(moveMeta);
-
-        if (moveData.Effect) {
-          const effectEl = document.createElement("div");
-          effectEl.className = "move-effect";
-          effectEl.textContent = moveData.Effect;
-          moveEl.append(effectEl);
-        }
-
-        if (moveData.Description) {
-          const descEl = document.createElement("div");
-          descEl.className = "move-description";
-          descEl.textContent = moveData.Description;
-          moveEl.append(descEl);
-        }
-      } else {
-        moveEl.textContent = moveName;
-      }
-
-      container.append(moveEl);
-    }
-  }
+  const moveDataList = await Promise.all(eligibleMoves.map((move) => fetchMoveData(move.Name)));
+  eligibleMoves.forEach((move, index) => {
+    container.append(createMoveRow(move.Name, moveDataList[index], move.Learned || "Starter", stats));
+  });
 }
 
 function render(records) {
@@ -701,6 +873,7 @@ function render(records) {
         if (isExpanded) {
           // Expand: fetch Pokerole data and generate stats once
           chevronBtn.classList.add("expanded");
+          card.classList.add("details-open");
           detailPanel.style.display = "block";
 
           try {
@@ -708,7 +881,7 @@ function render(records) {
             if (pokeroleData) {
               // Generate stats once — cached on record
               if (!record.pokeroleStats) {
-                record.pokeroleStats = generateStats(pokeroleData);
+                record.pokeroleStats = generateStats(pokeroleData, record.rank);
               }
 
               // Show stats
@@ -739,7 +912,7 @@ function render(records) {
               movesContent.textContent = "";
 
               try {
-                await renderMoves(pokeroleData, movesContent, record.rank);
+                await renderMoves(pokeroleData, movesContent, record.rank, record.pokeroleStats);
                 movesSpinner.style.display = "none";
                 movesContent.style.display = "block";
               } catch (e) {
@@ -765,6 +938,7 @@ function render(records) {
         } else {
           // Collapse
           chevronBtn.classList.remove("expanded");
+          card.classList.remove("details-open");
           detailPanel.style.display = "none";
         }
       });
@@ -896,7 +1070,7 @@ async function generateEncounter() {
           continue;
         }
         foundNames.add(pkmnName);
-        found.push(result.value);
+        found.push(createEncounterRecord(result.value));
       }
       // Skip rejected (failed fetch) records silently, same as before.
     }
