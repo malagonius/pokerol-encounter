@@ -1,13 +1,48 @@
 const STARTER_POKEMON = new Set([
-  "bulbasaur", "charmander", "squirtle",
-  "chikorita", "cyndaquil", "totodile",
-  "treecko", "torchic", "mudkip",
-  "turtwig", "chimchar", "piplup",
-  "snivy", "tepig", "oshawott",
-  "chespin", "fennekin", "froakie",
-  "rowlet", "litten", "popplio",
-  "grookey", "scorbunny", "sobble",
-  "sprigatito", "fuecoco", "quaxly"
+  // Generation 1
+  "bulbasaur", "ivysaur", "venusaur",
+  "charmander", "charmeleon", "charizard",
+  "squirtle", "wartortle", "blastoise",
+
+  // Generation 2
+  "chikorita", "bayleef", "meganium",
+  "cyndaquil", "quilava", "typhlosion",
+  "totodile", "croconaw", "feraligatr",
+
+  // Generation 3
+  "treecko", "grovyle", "sceptile",
+  "torchic", "combusken", "blaziken",
+  "mudkip", "marshtomp", "swampert",
+
+  // Generation 4
+  "turtwig", "grotle", "torterra",
+  "chimchar", "monferno", "infernape",
+  "piplup", "prinplup", "empoleon",
+
+  // Generation 5
+  "snivy", "servine", "serperior",
+  "tepig", "pignite", "emboar",
+  "oshawott", "dewott", "samurott",
+
+  // Generation 6
+  "chespin", "quilladin", "chesnaught",
+  "fennekin", "braixen", "delphox",
+  "froakie", "frogadier", "greninja",
+
+  // Generation 7
+  "rowlet", "dartrix", "decidueye",
+  "litten", "torracat", "incineroar",
+  "popplio", "brionne", "primarina",
+
+  // Generation 8
+  "grookey", "thwackey", "rillaboom",
+  "scorbunny", "raboot", "cinderace",
+  "sobble", "drizzile", "inteleon",
+
+  // Generation 9
+  "sprigatito", "floragato", "meowscarada",
+  "fuecoco", "crocalor", "skeledirge",
+  "quaxly", "quaxwell", "quaquaval"
 ]);
 
 function setupStarterFilter() {
@@ -36,8 +71,8 @@ function setupStarterFilter() {
 
   const checkbox = wrapper.querySelector("#excludeStarters");
 
-  // Capture the click before app.js's generator handler so starter Pokemon are
-  // removed from the candidate pool before the existing filtering pipeline runs.
+  // Capture the click before app.js's generator handler so starter Pokemon and
+  // every stage of their evolution lines are removed from the candidate pool.
   generateButton.addEventListener("click", () => {
     if (!checkbox.checked) return;
 
