@@ -12,12 +12,10 @@
 </head>
 <body>
   <main class="layout">
-    <!-- Static toggle button — always visible, stays in place on mobile -->
     <button type="button" id="filterToggle" class="filter-toggle">
       <span class="filter-toggle-icon">▼</span> Filters
     </button>
 
-    <!-- Modal overlay for mobile filter drawer -->
     <div class="filter-overlay" id="filterOverlay">
       <div class="modal-content">
         <section class="panel controls" id="controlsPanel">
@@ -96,9 +94,7 @@
       <p id="status" class="status">Loading base Pokemon list...</p>
       </section>
     </div>
-    <!-- End modal content -->
     </div>
-    <!-- End filter overlay -->
 
     <section class="panel results">
       <header class="results-head">
@@ -149,5 +145,6 @@
   <script src="app.js" defer></script>
   <script src="fossil-filter.js" defer></script>
   <script src="history.js" defer></script>
+  <script src="starter-filter.js" defer></script>
 </body>
 </html>
