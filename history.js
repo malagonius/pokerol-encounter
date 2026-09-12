@@ -1,5 +1,9 @@
 const generatedHistory = new Map();
 
+// Identity of the state.lastResult array already folded into generatedHistory.
+// A new array reference means a new generation, which replaces the whole history.
+let recordedResult = null;
+
 function setupGeneratedHistory() {
   const copyButton = document.getElementById("copyBtn");
   const results = document.getElementById("results");
@@ -102,6 +106,7 @@ function setupGeneratedHistory() {
   });
   clearHistoryButton.addEventListener("click", () => {
     generatedHistory.clear();
+    recordedResult = state.lastResult;
     renderHistory();
   });
 
@@ -109,6 +114,10 @@ function setupGeneratedHistory() {
   // Observe that render and record the generated Pokemon in a unique-name history.
   const observer = new MutationObserver(() => {
     if (!Array.isArray(state.lastResult)) return;
+    if (state.lastResult === recordedResult) return;
+
+    recordedResult = state.lastResult;
+    generatedHistory.clear();
 
     state.lastResult.forEach((pokemon) => {
       if (!pokemon?.name || generatedHistory.has(pokemon.name)) return;
@@ -117,6 +126,8 @@ function setupGeneratedHistory() {
         sprite: pokemon.sprite
       });
     });
+
+    if (!modal.hidden) renderHistory();
   });
   observer.observe(results, { childList: true, subtree: true });
 
